@@ -1,0 +1,659 @@
+/* Variables de color y tipografía */
+:root {
+  --color-papel-fondo: #F4F0EA;       /* Fondo general */
+  --color-papel-tarjeta: #FDFBF7;     /* Fondo de documentos */
+  --color-tinta-maquina: #2B2625;     /* Texto y líneas oscuras */
+  --color-tinta-suave: #4A4442;       /* Texto secundario */
+  --color-sello-rojo: #A93226;        /* Sellos y alertas */
+  --color-borde-suave: #D5D8DC;       /* Bordes claros */
+  --color-cinta-adhesiva: rgba(224, 213, 186, 0.65);
+
+  --fuente-mecanografia: 'Special Elite', monospace;
+  --fuente-lectura: 'EB Garamond', Georgia, serif;
+  --fuente-mono-tecnica: 'Courier Prime', monospace;
+
+  --sombra-expediente: 0 10px 25px rgba(43, 38, 37, 0.08), 0 2px 6px rgba(43, 38, 37, 0.04);
+  --sombra-hoja: 0 6px 16px rgba(43, 38, 37, 0.06), 0 1px 3px rgba(43, 38, 37, 0.04);
+  --transicion-suave: all 0.25s ease-in-out;
+}
+
+/* Reseteo básico */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-papel-fondo);
+  color: var(--color-tinta-maquina);
+  font-family: var(--fuente-lectura);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+  background-image: 
+    radial-gradient(var(--color-borde-suave) 0.75px, transparent 0.75px),
+    radial-gradient(var(--color-borde-suave) 0.75px, var(--color-papel-fondo) 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.dossier-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* Sección 1: Carátula */
+.carpeta-expediente {
+  position: relative;
+  background-color: var(--color-papel-tarjeta);
+  border: 2px solid var(--color-tinta-maquina);
+  border-radius: 4px;
+  box-shadow: var(--sombra-expediente);
+  padding: 3rem 2.5rem 2.5rem;
+  overflow: hidden;
+}
+
+.pestana-archivo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-tinta-maquina);
+  color: var(--color-papel-tarjeta);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 1.4rem;
+  text-transform: uppercase;
+  border-bottom-right-radius: 6px;
+}
+
+/* Sello de goma inclinado */
+.sello-desclasificado {
+  position: absolute;
+  top: 2rem;
+  right: 1.8rem;
+  color: var(--color-sello-rojo);
+  font-family: var(--fuente-mecanografia);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 3.5px dashed var(--color-sello-rojo);
+  padding: 0.45rem 1rem;
+  transform: rotate(7deg);
+  opacity: 0.88;
+  box-shadow: 0 0 0 2px rgba(169, 50, 38, 0.15);
+  cursor: pointer;
+  user-select: none;
+  mix-blend-mode: multiply;
+  transition: var(--transicion-suave);
+}
+
+.sello-desclasificado:hover {
+  transform: rotate(4deg) scale(1.04);
+  opacity: 1;
+}
+
+.metadatos-cabecera {
+  margin-top: 1.2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px dashed var(--color-borde-suave);
+  padding-bottom: 1.2rem;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.85rem;
+  color: var(--color-tinta-suave);
+}
+
+.metadatos-cabecera strong {
+  color: var(--color-tinta-maquina);
+}
+
+.titulo-principal {
+  font-family: var(--fuente-mecanografia);
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-tinta-maquina);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.subtitulo-archivo {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-tinta-suave);
+  margin-bottom: 2.2rem;
+}
+
+/* Recuadro de memo oficial */
+.memo-oficial {
+  background-color: var(--color-papel-fondo);
+  border-left: 5px solid var(--color-tinta-maquina);
+  border-top: 1px solid var(--color-borde-suave);
+  border-right: 1px solid var(--color-borde-suave);
+  border-bottom: 1px solid var(--color-borde-suave);
+  padding: 1.5rem 1.8rem;
+  margin-top: 1.5rem;
+}
+
+.memo-encabezado {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-sello-rojo);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.pregunta-historica {
+  font-family: var(--fuente-mecanografia);
+  font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+  line-height: 1.55;
+  color: var(--color-tinta-maquina);
+  font-weight: 400;
+}
+
+/* Sección 2: Hoja del informe */
+.informe-documento {
+  position: relative;
+  background-color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-borde-suave);
+  box-shadow: var(--sombra-hoja);
+  padding: 3.5rem 2.8rem 2.8rem;
+  border-radius: 2px;
+}
+
+/* Clip metálico en CSS */
+.paperclip {
+  position: absolute;
+  top: -16px;
+  left: 45px;
+  width: 18px;
+  height: 48px;
+  border: 3px solid #7F8C8D;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.22);
+  z-index: 5;
+}
+
+.paperclip::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 2px;
+  right: 2px;
+  height: 30px;
+  border: 2px solid #5D6D7E;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Cinta adhesiva en CSS */
+.cinta-adhesiva {
+  position: absolute;
+  top: -12px;
+  right: 60px;
+  width: 110px;
+  height: 28px;
+  background-color: var(--color-cinta-adhesiva);
+  transform: rotate(-3deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(1px);
+}
+
+.informe-cabecera {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-bottom: 2px solid var(--color-tinta-maquina);
+  padding-bottom: 1.2rem;
+  margin-bottom: 2.2rem;
+  font-family: var(--fuente-mono-tecnica);
+}
+
+.informe-folio {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--color-sello-rojo);
+  font-weight: 700;
+}
+
+.informe-titulo {
+  font-family: var(--fuente-mecanografia);
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: var(--color-tinta-maquina);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.grid-contenido-historico {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+}
+
+.bloque-parrafo {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.bloque-parrafo p {
+  margin-bottom: 1.3rem;
+  text-indent: 1.8rem;
+}
+
+.bloque-parrafo p::first-letter {
+  font-size: 1.6em;
+  font-family: var(--fuente-mecanografia);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Cuadrícula de hitos */
+.hitos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.hito-card {
+  background: var(--color-papel-fondo);
+  border: 1px dashed var(--color-borde-suave);
+  border-top: 3px solid var(--color-tinta-maquina);
+  padding: 1.1rem;
+  font-size: 0.95rem;
+  transition: var(--transicion-suave);
+  cursor: pointer;
+}
+
+.hito-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-tinta-maquina);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.hito-anio {
+  font-family: var(--fuente-mono-tecnica);
+  font-weight: 700;
+  color: var(--color-sello-rojo);
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+  display: block;
+  letter-spacing: 0.08em;
+}
+
+.hito-titulo {
+  font-family: var(--fuente-mecanografia);
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+/* Notas al pie */
+.notas-pie-informe {
+  margin-top: 2.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--color-borde-suave);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.85rem;
+  color: var(--color-tinta-suave);
+}
+
+.nota-item {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+.nota-indice {
+  font-weight: bold;
+  color: var(--color-sello-rojo);
+  margin-right: 0.3rem;
+}
+
+.tachado-oficial {
+  text-decoration: line-through;
+  color: #7B7D7D;
+  margin-right: 0.3rem;
+}
+
+.correccion-mecanografiada {
+  font-weight: bold;
+  color: var(--color-tinta-maquina);
+  background-color: #EAE6DF;
+  padding: 0.1rem 0.35rem;
+  border-radius: 2px;
+}
+
+/* Notificación flotante */
+.alerta-desclasificado {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--color-papel-tarjeta);
+  border: 2px solid var(--color-sello-rojo);
+  color: var(--color-sello-rojo);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  border-radius: 3px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.alerta-desclasificado.mostrar {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+  body {
+    padding: 1.2rem 0.6rem;
+    font-size: 1.05rem;
+  }
+
+  .carpeta-expediente {
+    padding: 2.8rem 1.4rem 1.8rem;
+  }
+
+  .sello-desclasificado {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    transform: rotate(-3deg);
+    font-size: 0.85rem;
+  }
+
+  .informe-documento {
+    padding: 2.6rem 1.4rem 1.8rem;
+  }
+
+  .cinta-adhesiva {
+    right: 20px;
+    width: 80px;
+  }
+
+  .paperclip {
+    left: 20px;
+  }
+
+  .bloque-parrafo p {
+    text-indent: 1rem;
+  }
+}
+
+/* Sección 3: Red Interactiva */
+.seccion-red-historica {
+  position: relative;
+  background-color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-borde-suave);
+  box-shadow: var(--sombra-hoja);
+  padding: 3rem 2.5rem;
+  border-radius: 2px;
+}
+
+.cabecera-red {
+  margin-bottom: 1.8rem;
+  border-bottom: 2px solid var(--color-tinta-maquina);
+  padding-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.instruccion-red {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.85rem;
+  color: var(--color-tinta-suave);
+  margin-top: 0.4rem;
+}
+
+/* Filtros de la red */
+.filtros-red-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.btn-filtro-archivo {
+  background-color: var(--color-papel-fondo);
+  color: var(--color-tinta-maquina);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid var(--color-borde-suave);
+  border-bottom: 3px solid var(--color-tinta-maquina);
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: var(--transicion-suave);
+}
+
+.btn-filtro-archivo:hover {
+  background-color: #EAE6DF;
+}
+
+.btn-filtro-archivo.activo {
+  background-color: var(--color-tinta-maquina);
+  color: var(--color-papel-tarjeta);
+  border-color: var(--color-tinta-maquina);
+}
+
+/* Lienzo con fondo de papel milimetrado */
+.red-canvas-wrapper {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  background-color: var(--color-papel-fondo);
+  /* Cuadrícula milimetrada */
+  background-image: 
+    linear-gradient(var(--color-borde-suave) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-borde-suave) 1px, transparent 1px);
+  background-size: 20px 20px;
+  border: 2px solid var(--color-tinta-maquina);
+  box-shadow: inset 0 2px 8px rgba(43, 38, 37, 0.06);
+  border-radius: 2px;
+}
+
+#network-graph {
+  width: 100%;
+  height: 100%;
+}
+
+/* Leyenda de categorías */
+.leyenda-categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.82rem;
+}
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.leyenda-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  border: 1.5px solid;
+}
+
+.color-causas { background: #EBF5FB; border-color: #1F4E79; }
+.color-actores { background: #E8F8F5; border-color: #117A65; }
+.color-procesos { background: #FEF9E7; border-color: #B7950B; }
+.color-consecuencias { background: #FDEDEC; border-color: #A93226; }
+
+/* Panel Lateral Deslizable (Ficha de Investigador) */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 38, 37, 0.45);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 200;
+}
+
+.drawer-backdrop.activo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-ficha {
+  position: fixed;
+  top: 0;
+  right: -480px;
+  width: min(450px, 92vw);
+  height: 100vh;
+  background-color: var(--color-papel-tarjeta);
+  border-left: 3px solid var(--color-tinta-maquina);
+  box-shadow: -8px 0 24px rgba(43, 38, 37, 0.2);
+  z-index: 210;
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  padding: 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.drawer-ficha.activo {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.drawer-close {
+  background: none;
+  border: 1px solid var(--color-tinta-maquina);
+  color: var(--color-tinta-maquina);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: var(--transicion-suave);
+}
+
+.drawer-close:hover {
+  background-color: var(--color-sello-rojo);
+  color: #fff;
+  border-color: var(--color-sello-rojo);
+}
+
+/* Sellos del panel por categoría */
+.drawer-sello {
+  display: inline-block;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem;
+  border: 2px solid;
+  border-radius: 2px;
+}
+
+.sello-causas { color: #1F4E79; border-color: #1F4E79; background: #EBF5FB; }
+.sello-actores { color: #117A65; border-color: #117A65; background: #E8F8F5; }
+.sello-procesos { color: #B7950B; border-color: #B7950B; background: #FEF9E7; }
+.sello-consecuencias { color: #A93226; border-color: #A93226; background: #FDEDEC; }
+
+.drawer-titulo {
+  font-family: var(--fuente-mecanografia);
+  font-size: 1.45rem;
+  line-height: 1.3;
+  color: var(--color-tinta-maquina);
+}
+
+.drawer-seccion-titulo {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-tinta-suave);
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+.drawer-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.drawer-conexiones {
+  list-style: none;
+  font-size: 0.92rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-family: var(--fuente-mono-tecnica);
+}
+
+.drawer-conexiones li {
+  padding: 0.4rem 0.6rem;
+  background: var(--color-papel-fondo);
+  border-left: 3px solid var(--color-tinta-maquina);
+}
+
+.drawer-cita-caja {
+  background: #EAE6DF;
+  border: 1px dashed #BDC3C7;
+  padding: 0.9rem;
+  font-size: 0.85rem;
+  font-family: var(--fuente-mono-tecnica);
+  color: var(--color-tinta-suave);
+}
+
+@media (max-width: 768px) {
+  .seccion-red-historica {
+    padding: 2.2rem 1.2rem;
+  }
+  .red-canvas-wrapper {
+    height: 440px;
+  }
+}

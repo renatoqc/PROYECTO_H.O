@@ -10,19 +10,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=EB+Garamond:wght@400;600&family=Special+Elite&display=swap" rel="stylesheet">
 
-  <!-- Estilos -->
+  <!-- Swiper.js CSS para carrusel de evidencias -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Estilos del proyecto -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
+  <!-- Barra de Navegación Superior: Archivador Central -->
+  <nav class="barra-nav-archivo" aria-label="Navegación del Archivo Central">
+    <div class="nav-container">
+      <div class="nav-identificador">
+        <i data-lucide="shield-alert" aria-hidden="true"></i>
+        <span>ARCHIVO CENTRAL URSS // EXP-1928-1953</span>
+      </div>
+      <ul class="nav-enlaces">
+        <li><a href="#inicio" class="nav-link-archivo"><i data-lucide="folder"></i> Carátula</a></li>
+        <li><a href="#contexto" class="nav-link-archivo"><i data-lucide="file-text"></i> Contexto</a></li>
+        <li><a href="#estadisticas" class="nav-link-archivo"><i data-lucide="bar-chart-2"></i> Gosplán</a></li>
+        <li><a href="#galeria" class="nav-link-archivo"><i data-lucide="image"></i> Evidencias</a></li>
+        <li><a href="#relaciones" class="nav-link-archivo"><i data-lucide="share-2"></i> Red Causal</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="dossier-wrapper">
 
     <!-- Sección 1: Carátula del expediente -->
-    <header class="carpeta-expediente" role="banner">
+    <header class="carpeta-expediente" id="inicio" role="banner">
       <div class="pestana-archivo">NKVD // ARCHIVO CENTRAL DE MOSCÚ</div>
 
       <!-- Sello rojo interactivo -->
-      <div class="sello-desclasificado" title="Clic para registrar" aria-label="Sello: Documento Desclasificado">
+      <div class="sello-desclasificado" title="Clic para consultar credenciales de acceso" aria-label="Sello: Documento Desclasificado">
         ★ DOCUMENTO DESCLASIFICADO ★
       </div>
 
@@ -50,7 +70,7 @@
 
     <!-- Sección 2: Contexto histórico -->
     <main>
-      <article class="informe-documento">
+      <article class="informe-documento" id="contexto">
         <!-- Detalles visuales: clip y cinta -->
         <div class="paperclip" aria-hidden="true"></div>
         <div class="cinta-adhesiva" aria-hidden="true"></div>
@@ -70,24 +90,33 @@
             </p>
           </div>
 
-          <!-- Tarjetas de hitos históricos -->
+          <!-- Tarjetas de hitos históricos (vinculadas al sistema de expedientes) -->
           <div class="hitos-grid">
-            <section class="hito-card" tabindex="0">
+            <section class="hito-card" tabindex="0" data-expediente="exp-lenin-nep" title="Haz clic para abrir el expediente completo">
               <span class="hito-anio">ENERO DE 1924</span>
               <h3 class="hito-titulo">Muerte de Lenin y Pugna</h3>
               <p>Comienzo de las luchas internas por la sucesión ideológica y desmantelamiento progresivo de la oposición política.</p>
+              <span class="btn-abrir-expediente" style="margin-top:0.8rem; font-size:0.75rem;">
+                <i data-lucide="folder-open"></i> Abrir Expediente
+              </span>
             </section>
 
-            <section class="hito-card" tabindex="0">
+            <section class="hito-card" tabindex="0" data-expediente="exp-viraje-1928" title="Haz clic para abrir el expediente completo">
               <span class="hito-anio">1928 – 1929</span>
               <h3 class="hito-titulo">Abandono de la NEP</h3>
               <p>Reemplazo de la iniciativa agraria mercantil por el Primer Plan Quinquenal enfocado en la industria siderúrgica pesada.</p>
+              <span class="btn-abrir-expediente" style="margin-top:0.8rem; font-size:0.75rem;">
+                <i data-lucide="folder-open"></i> Abrir Expediente
+              </span>
             </section>
 
-            <section class="hito-card" tabindex="0">
+            <section class="hito-card" tabindex="0" data-expediente="exp-colectivizacion" title="Haz clic para abrir el expediente completo">
               <span class="hito-anio">1929 EN ADELANTE</span>
               <h3 class="hito-titulo">Colectivización Forzada</h3>
               <p>Destrucción forzosa de la propiedad campesina, deportación de "kulaks" y requisas estatales masivas de grano.</p>
+              <span class="btn-abrir-expediente" style="margin-top:0.8rem; font-size:0.75rem;">
+                <i data-lucide="folder-open"></i> Abrir Expediente
+              </span>
             </section>
           </div>
 
@@ -111,13 +140,141 @@
         </footer>
       </article>
 
+      <!-- Nueva Sección: Registro Estadístico del Gosplán (Chart.js) -->
+      <section class="seccion-chart-gosplan" id="estadisticas" aria-labelledby="titulo-chart-id">
+        <header class="cabecera-red">
+          <span class="informe-folio">ANEXO ESTADÍSTICO GOSPLÁN N° 12-E // PRODUCCIÓN Y COLECTIVIZACIÓN</span>
+          <h2 class="informe-titulo" id="titulo-chart-id">Índices Quinquenales: Expansión Fabril vs. Control Agrario (1928–1940)</h2>
+          <p class="instruccion-red">
+            ✦ Series estadísticas históricas basadas en registros oficiales del Gosplán cotejados con investigaciones económicas independientes (Davies & Harrison).
+          </p>
+        </header>
+
+        <!-- Contenedor del gráfico -->
+        <div class="chart-wrapper-papel">
+          <canvas id="chart-gosplan" role="img" aria-label="Gráfico de evolución del acero, carbón y colectivización en la URSS"></canvas>
+        </div>
+
+        <!-- Fichas explicativas inferiores -->
+        <div class="chart-notas-inferiores">
+          <div class="chart-nota-item">
+            <strong>Acero (1928–1940):</strong> De 4.3 MT a 18.3 MT. La URSS superó a Gran Bretaña y Alemania como potencia siderúrgica europea en vísperas de 1941.
+          </div>
+          <div class="chart-nota-item">
+            <strong>Carbón (1928–1940):</strong> De 35.5 MT a 165.9 MT. Explotación acelerada de la cuenca del Donbás y los yacimientos de Kuznetsk mediante mano de obra estajanovista.
+          </div>
+          <div class="chart-nota-item">
+            <strong>Colectivización:</strong> Del 1.7% al 96.9% de granjas confiscadas. Permitió al Estado controlar el precio del pan urbano a expensas de las hambrunas rurales de 1932–1933.
+          </div>
+        </div>
+      </section>
+
+      <!-- Nueva Sección: Galería de Evidencias Fotográficas (Swiper.js) -->
+      <section class="seccion-galeria" id="galeria" aria-labelledby="titulo-galeria-id">
+        <header class="cabecera-red">
+          <span class="informe-folio">REGISTRO FOTOGRÁFICO DE INTELIGENCIA // FONDOS DESCLASIFICADOS</span>
+          <h2 class="informe-titulo" id="titulo-galeria-id">Evidencias Visuales del Periodo Estalinista</h2>
+          <p class="instruccion-red">
+            ✦ Desliza las placas fotográficas o utiliza las flechas para inspeccionar los documentos de época. Haz clic en "Abrir Expediente" para desplegar la investigación.
+          </p>
+        </header>
+
+        <!-- Carrusel Swiper -->
+        <div class="swiper swiper-evidencias">
+          <div class="swiper-wrapper">
+
+            <!-- Diapositiva 1: Magnitogorsk -->
+            <div class="swiper-slide tarjeta-evidencia-slide">
+              <div class="evidencia-foto-frame">
+                <div class="evidencia-sello-flotante">FOTO-DOC N° 01 // MMK</div>
+                <!-- Gráfico representativo estilo placa de archivo -->
+                <svg viewBox="0 0 400 240" class="evidencia-foto-img" style="background:#1B241E;">
+                  <rect width="400" height="240" fill="#202A23"/>
+                  <path d="M40 240 L100 80 L160 240 Z" fill="#2E3B32" stroke="#46574B" stroke-width="2"/>
+                  <path d="M140 240 L210 50 L280 240 Z" fill="#26322A" stroke="#46574B" stroke-width="2"/>
+                  <path d="M260 240 L310 110 L360 240 Z" fill="#2E3B32" stroke="#46574B" stroke-width="2"/>
+                  <line x1="210" y1="50" x2="210" y2="20" stroke="#A52D27" stroke-width="3"/>
+                  <circle cx="210" cy="18" r="4" fill="#A52D27"/>
+                  <text x="20" y="35" fill="#D8D0B9" font-family="'Courier Prime', monospace" font-size="12">COMPLEJO METALÚRGICO MAGNITOGORSK (URALES)</text>
+                  <text x="20" y="225" fill="#A52D27" font-family="'Special Elite', monospace" font-size="11">★ ACERO PARA LA INDUSTRIALIZACIÓN ★</text>
+                </svg>
+              </div>
+              <div class="evidencia-cuerpo">
+                <span class="evidencia-fecha">1929 – 1932 // ALTO HORNO N° 1</span>
+                <h3 class="evidencia-titulo">Magnitogorsk: La Montaña Magnética</h3>
+                <p class="evidencia-desc">Construcción récord de la mayor fundición de acero de Eurasia a 40 grados bajo cero, levantada por brigadistas y presos de la deskulakización.</p>
+                <button class="btn-abrir-expediente" data-expediente="exp-magnitogorsk">
+                  <i data-lucide="book-open"></i> Abrir Expediente Completo
+                </button>
+              </div>
+            </div>
+
+            <!-- Diapositiva 2: Belomorkanal -->
+            <div class="swiper-slide tarjeta-evidencia-slide">
+              <div class="evidencia-foto-frame">
+                <div class="evidencia-sello-flotante">FOTO-DOC N° 02 // GULAG</div>
+                <svg viewBox="0 0 400 240" class="evidencia-foto-img" style="background:#18201B;">
+                  <rect width="400" height="240" fill="#1C2620"/>
+                  <path d="M0 160 Q150 120 400 170 L400 240 L0 240 Z" fill="#243028"/>
+                  <line x1="0" y1="130" x2="400" y2="130" stroke="#3E4F43" stroke-width="3" stroke-dasharray="6,4"/>
+                  <text x="20" y="35" fill="#D8D0B9" font-family="'Courier Prime', monospace" font-size="12">CANAL MAR BLANCO-BÁLTICO (BELOMORKANAL)</text>
+                  <text x="20" y="225" fill="#A52D27" font-family="'Special Elite', monospace" font-size="11">★ TRABAJO FORZADO Y REFORJA (PEREKOVKA) ★</text>
+                </svg>
+              </div>
+              <div class="evidencia-cuerpo">
+                <span class="evidencia-fecha">1931 – 1933 // BELBALTLAG</span>
+                <h3 class="evidencia-titulo">El Belomorkanal y la Expansión del GULAG</h3>
+                <p class="evidencia-desc">227 kilómetros excavados a mano por más de 100,000 prisioneros políticos. Primer megaproyecto del NKVD que inauguró la economía concentracionaria.</p>
+                <button class="btn-abrir-expediente" data-expediente="exp-belomorkanal">
+                  <i data-lucide="book-open"></i> Abrir Expediente Completo
+                </button>
+              </div>
+            </div>
+
+            <!-- Diapositiva 3: Las Purgas de 1937 -->
+            <div class="swiper-slide tarjeta-evidencia-slide">
+              <div class="evidencia-foto-frame">
+                <div class="evidencia-sello-flotante">FOTO-DOC N° 03 // NKVD N° 00447</div>
+                <svg viewBox="0 0 400 240" class="evidencia-foto-img" style="background:#1E1C1A;">
+                  <rect width="400" height="240" fill="#23201D"/>
+                  <rect x="50" y="40" width="300" height="150" fill="#2D2824" stroke="#A52D27" stroke-width="2"/>
+                  <line x1="80" y1="70" x2="320" y2="70" stroke="#8A342E" stroke-width="2"/>
+                  <line x1="80" y1="100" x2="280" y2="100" stroke="#8A342E" stroke-width="1.5"/>
+                  <line x1="80" y1="130" x2="300" y2="130" stroke="#8A342E" stroke-width="1.5"/>
+                  <text x="70" y="170" fill="#A52D27" font-family="'Special Elite', monospace" font-size="13">★ CONDENADO: FUSILAMIENTO (CATEGORÍA 1) ★</text>
+                  <text x="20" y="25" fill="#D8D0B9" font-family="'Courier Prime', monospace" font-size="12">ORDEN OPERATIVA DEL COMITÉ CENTRAL</text>
+                </svg>
+              </div>
+              <div class="evidencia-cuerpo">
+                <span class="evidencia-fecha">1936 – 1938 // EL GRAN TERROR</span>
+                <h3 class="evidencia-titulo">Juicios de Moscú y Purgas del Partido</h3>
+                <p class="evidencia-desc">Eliminación sistemática de la vieja guardia bolchevique, oficiales del Ejército Rojo y ciudadanos comunes mediante confesiones forzadas y cuotas de ejecución.</p>
+                <button class="btn-abrir-expediente" data-expediente="exp-purgas-1937">
+                  <i data-lucide="book-open"></i> Abrir Expediente Completo
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Controles de navegación del carrusel -->
+          <div class="swiper-nav-bar">
+            <div class="swiper-pagination"></div>
+            <div class="swiper-controles">
+              <button class="swiper-btn-prev" aria-label="Evidencia anterior"><i data-lucide="chevron-left"></i></button>
+              <button class="swiper-btn-next" aria-label="Evidencia siguiente"><i data-lucide="chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Sección 3: Red Interactiva de Relaciones Históricas -->
-      <section class="seccion-red-historica" aria-labelledby="titulo-red-id">
+      <section class="seccion-red-historica" id="relaciones" aria-labelledby="titulo-red-id">
         <header class="cabecera-red">
           <span class="informe-folio">DIAGRAMA ANALÍTICO V-03 // RELACIONES CAUSALES</span>
           <h2 class="informe-titulo" id="titulo-red-id">Red Interactiva de Relaciones Históricas</h2>
           <p class="instruccion-red">
-            ✦ Arrastra o amplía el lienzo con el ratón. Haz clic en cualquier nodo para desclasificar su ficha histórica.
+            ✦ Arrastra o amplía el lienzo con el ratón. Haz clic en cualquier nodo para desclasificar su ficha histórica en el panel lateral.
           </p>
         </header>
 
@@ -159,7 +316,7 @@
 
   </div>
 
-  <!-- Panel Lateral Deslizable (Ficha de Investigador) -->
+  <!-- Panel Lateral Deslizable de la Red (Ficha de Investigador) -->
   <div id="drawer-backdrop" class="drawer-backdrop" aria-hidden="true"></div>
   <aside id="drawer-ficha" class="drawer-ficha" aria-label="Ficha de investigación histórica">
     <div class="drawer-header">
@@ -185,11 +342,82 @@
     </div>
   </aside>
 
-  <!-- Biblioteca Vis.js Network (CDN) -->
-  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <!-- ========================================================
+       SISTEMA DE EXPEDIENTES HISTÓRICOS INTERACTIVOS (3D FOLDER MODAL)
+       ======================================================== -->
+  <div id="modal-expediente" class="modal-expediente-wrapper" role="dialog" aria-modal="true" aria-labelledby="exp-titulo">
+    <div id="expediente-backdrop" class="expediente-backdrop"></div>
 
-  <!-- Scripts interactivos del proyecto -->
-  <script src="js/main.js" defer></script>
+    <div class="carpeta-militar-3d">
+      <!-- Tapa frontal que se abre con animación 3D de GSAP -->
+      <div id="carpeta-tapa-frontal" class="carpeta-tapa-frontal">
+        <div class="tapa-encabezado-militar">
+          <span>COMISARIADO DEL PUEBLO DE ASUNTOS INTERNOS (NKVD)</span>
+          <span class="tapa-sello-rojo">★ СОВЕРШЕННО СЕКРЕТНО ★</span>
+        </div>
+        <div class="tapa-centro">
+          <div class="tapa-codigo" id="tapa-codigo">EXP-URSS-1928-1953</div>
+          <h2 class="tapa-titulo" id="tapa-titulo">EXPEDIENTE DE INVESTIGACIÓN HISTÓRICA</h2>
+        </div>
+        <div class="tapa-pie">
+          [ REGISTRO ESPECIAL // PROHIBIDA SU REPRODUCCIÓN O DIVULGACIÓN SIN AUTORIZACIÓN ]
+        </div>
+      </div>
+
+      <!-- Documento confidencial interior -->
+      <div id="expediente-doc-interior" class="expediente-doc-interior">
+        <div class="doc-cabecera-oficial">
+          <div>
+            <span class="doc-clasificacion" id="exp-clasificacion">★ ESTRICTAMENTE CONFIDENCIAL ★</span>
+            <span class="doc-codigo" id="exp-codigo">EXP-1928-001</span>
+            <div style="font-family: var(--fuente-mono-tecnica); font-size: 0.8rem; color: var(--color-tinta-suave); margin-top: 0.2rem;" id="exp-fecha">FECHA</div>
+          </div>
+          <button id="expediente-btn-cerrar" class="doc-btn-cerrar" aria-label="Cerrar expediente">&times;</button>
+        </div>
+
+        <div>
+          <h2 class="doc-titulo-principal" id="exp-titulo">Título del Acontecimiento</h2>
+          <div class="doc-subtitulo" id="exp-subtitulo">Subtítulo Descriptivo</div>
+        </div>
+
+        <div class="doc-seccion-bloque">
+          <h4>Contexto Histórico y Dictamen</h4>
+          <p class="doc-contexto-p" id="exp-contexto"></p>
+        </div>
+
+        <div class="doc-seccion-bloque">
+          <h4>Personajes Involucrados</h4>
+          <ul class="doc-lista-personajes" id="exp-personajes"></ul>
+        </div>
+
+        <div class="doc-seccion-bloque">
+          <h4>Datos y Estadísticas Clave</h4>
+          <ul class="doc-lista-datos" id="exp-datos"></ul>
+        </div>
+
+        <blockquote class="doc-cita-oficial" id="exp-cita"></blockquote>
+
+        <div class="doc-fuente-academica">
+          <strong>Referencia Archivística:</strong> <span id="exp-fuente"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Librerías Externas vía CDN -->
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Módulos JavaScript del Proyecto -->
+  <script src="js/dossier-modal.js" defer></script>
+  <script src="js/charts.js" defer></script>
+  <script src="js/gallery.js" defer></script>
   <script src="js/network.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

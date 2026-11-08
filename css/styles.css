@@ -1,19 +1,26 @@
 /* Variables de color y tipografía */
 :root {
-  --color-papel-fondo: #F4F0EA;       /* Fondo general */
-  --color-papel-tarjeta: #FDFBF7;     /* Fondo de documentos */
-  --color-tinta-maquina: #2B2625;     /* Texto y líneas oscuras */
-  --color-tinta-suave: #4A4442;       /* Texto secundario */
-  --color-sello-rojo: #A93226;        /* Sellos y alertas */
-  --color-borde-suave: #D5D8DC;       /* Bordes claros */
-  --color-cinta-adhesiva: rgba(224, 213, 186, 0.65);
+  /* Paleta militar e histórica de la URSS */
+  --color-verde-militar: #28352A;     /* Verde militar soviético */
+  --color-verde-oscuro: #151D19;      /* Tinta y marcos principales */
+  --color-papel-envejecido: #D8D0B9;  /* Papel de archivo desgastado */
+  --color-sello-rojo: #A52D27;        /* Rojo de clasificación y sellos */
+  --color-negro: #111111;             /* Negro carbón */
+
+  /* Fondos y superficies */
+  --color-papel-fondo: #EDE7D8;       /* Fondo general cálido */
+  --color-papel-tarjeta: #FAF6EE;     /* Hojas y documentos interiores */
+  --color-tinta-maquina: #151D19;     /* Tipografía mecanografiada */
+  --color-tinta-suave: #424B44;       /* Textos secundarios y fechas */
+  --color-borde-suave: #C2BAA6;       /* Separadores y cuadrícula */
+  --color-cinta-adhesiva: rgba(216, 208, 185, 0.7);
 
   --fuente-mecanografia: 'Special Elite', monospace;
   --fuente-lectura: 'EB Garamond', Georgia, serif;
   --fuente-mono-tecnica: 'Courier Prime', monospace;
 
-  --sombra-expediente: 0 10px 25px rgba(43, 38, 37, 0.08), 0 2px 6px rgba(43, 38, 37, 0.04);
-  --sombra-hoja: 0 6px 16px rgba(43, 38, 37, 0.06), 0 1px 3px rgba(43, 38, 37, 0.04);
+  --sombra-expediente: 0 10px 25px rgba(21, 29, 25, 0.12), 0 2px 6px rgba(21, 29, 25, 0.06);
+  --sombra-hoja: 0 6px 16px rgba(21, 29, 25, 0.08), 0 1px 3px rgba(21, 29, 25, 0.05);
   --transicion-suave: all 0.25s ease-in-out;
 }
 
@@ -31,7 +38,7 @@ body {
   font-size: 1.125rem;
   line-height: 1.7;
   min-height: 100vh;
-  padding: 2.5rem 1rem;
+  padding: 5rem 1rem 3rem; /* Espacio para barra de navegación superior */
   background-image: 
     radial-gradient(var(--color-borde-suave) 0.75px, transparent 0.75px),
     radial-gradient(var(--color-borde-suave) 0.75px, var(--color-papel-fondo) 0.75px);
@@ -655,5 +662,588 @@ body {
   }
   .red-canvas-wrapper {
     height: 440px;
+  }
+}
+
+/* ==========================================================
+   BARRA DE NAVEGACIÓN SUPERIOR (ARCHIVADOR CENTRAL)
+   ========================================================== */
+.barra-nav-archivo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-verde-oscuro);
+  border-bottom: 2px solid var(--color-verde-militar);
+  box-shadow: 0 4px 16px rgba(17, 17, 17, 0.4);
+  z-index: 100;
+  padding: 0.5rem 1rem;
+}
+
+.nav-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-identificador {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-papel-envejecido);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-enlaces {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.nav-link-archivo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: var(--color-verde-militar);
+  color: var(--color-papel-tarjeta);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(216, 208, 185, 0.2);
+  border-radius: 2px;
+  transition: var(--transicion-suave);
+  white-space: nowrap;
+}
+
+.nav-link-archivo:hover {
+  background-color: #38483B;
+  color: #FFFFFF;
+  border-color: var(--color-papel-envejecido);
+}
+
+.nav-link-archivo i, .nav-link-archivo svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ==========================================================
+   SECCIÓN ESTADÍSTICA: GOSPLÁN (CHART.JS)
+   ========================================================== */
+.seccion-chart-gosplan {
+  position: relative;
+  background-color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-borde-suave);
+  box-shadow: var(--sombra-hoja);
+  padding: 3rem 2.5rem;
+  border-radius: 2px;
+}
+
+.chart-wrapper-papel {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  margin: 1.5rem 0;
+  background-color: #FAF5EA;
+  border: 1px solid var(--color-borde-suave);
+  padding: 1rem;
+  border-radius: 2px;
+}
+
+.chart-notas-inferiores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--color-borde-suave);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.85rem;
+  color: var(--color-tinta-suave);
+}
+
+.chart-nota-item strong {
+  color: var(--color-tinta-maquina);
+}
+
+/* ==========================================================
+   SECCIÓN: GALERÍA DE EVIDENCIAS FOTOGRÁFICAS (SWIPER.JS)
+   ========================================================== */
+.seccion-galeria {
+  position: relative;
+  background-color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-borde-suave);
+  box-shadow: var(--sombra-hoja);
+  padding: 3rem 2.5rem;
+  border-radius: 2px;
+}
+
+.swiper-evidencias {
+  width: 100%;
+  padding: 1.5rem 0 3.5rem;
+}
+
+.tarjeta-evidencia-slide {
+  background-color: var(--color-papel-fondo);
+  border: 1px solid var(--color-borde-suave);
+  border-top: 4px solid var(--color-verde-militar);
+  box-shadow: 0 4px 12px rgba(21, 29, 25, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  border-radius: 2px;
+  transition: var(--transicion-suave);
+}
+
+.tarjeta-evidencia-slide:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-verde-oscuro);
+  box-shadow: 0 8px 20px rgba(21, 29, 25, 0.14);
+}
+
+.evidencia-foto-frame {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background-color: #28352A;
+  border-bottom: 1px solid var(--color-borde-suave);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.evidencia-foto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(85%) sepia(25%) contrast(110%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.tarjeta-evidencia-slide:hover .evidencia-foto-img {
+  filter: grayscale(40%) sepia(15%);
+  transform: scale(1.05);
+}
+
+.evidencia-sello-flotante {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: rgba(21, 29, 25, 0.85);
+  color: var(--color-papel-envejecido);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--color-borde-suave);
+}
+
+.evidencia-cuerpo {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.6rem;
+}
+
+.evidencia-fecha {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.8rem;
+  color: var(--color-sello-rojo);
+  font-weight: bold;
+}
+
+.evidencia-titulo {
+  font-family: var(--fuente-mecanografia);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--color-tinta-maquina);
+}
+
+.evidencia-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-tinta-suave);
+  flex-grow: 1;
+}
+
+.btn-abrir-expediente {
+  align-self: flex-start;
+  margin-top: 0.6rem;
+  background-color: var(--color-verde-militar);
+  color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-verde-oscuro);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.82rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  transition: var(--transicion-suave);
+}
+
+.btn-abrir-expediente:hover {
+  background-color: var(--color-sello-rojo);
+  border-color: var(--color-sello-rojo);
+  color: #FFFFFF;
+}
+
+.swiper-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.swiper-controles {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.swiper-btn-prev, .swiper-btn-next {
+  width: 38px;
+  height: 38px;
+  background-color: var(--color-papel-fondo);
+  border: 2px solid var(--color-verde-militar);
+  color: var(--color-verde-militar);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--fuente-mono-tecnica);
+  font-weight: bold;
+  transition: var(--transicion-suave);
+}
+
+.swiper-btn-prev:hover, .swiper-btn-next:hover {
+  background-color: var(--color-verde-militar);
+  color: #FFFFFF;
+}
+
+.swiper-pagination {
+  position: static !important;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.swiper-pagination-bullet {
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  font-weight: bold;
+  color: var(--color-tinta-suave);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--color-borde-suave);
+  border-radius: 2px !important;
+  opacity: 0.65;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--color-verde-militar) !important;
+  color: #FFFFFF !important;
+  border-color: var(--color-verde-militar);
+  opacity: 1;
+}
+
+/* ==========================================================
+   SISTEMA DE EXPEDIENTES HISTÓRICOS INTERACTIVOS (3D MODAL)
+   ========================================================== */
+.modal-expediente-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  perspective: 1200px;
+  transition: opacity 0.3s ease;
+}
+
+.modal-expediente-wrapper.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.expediente-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(17, 17, 17, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.carpeta-militar-3d {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 820px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+}
+
+/* Tapa frontal de la carpeta militar que se abre en 3D */
+.carpeta-tapa-frontal {
+  position: absolute;
+  inset: 0;
+  background-color: #28352A;
+  background-image: 
+    radial-gradient(rgba(216, 208, 185, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+  border: 3px solid #151D19;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  border-radius: 4px;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-origin: left center;
+  z-index: 5;
+  pointer-events: none;
+  backface-visibility: hidden;
+}
+
+.tapa-encabezado-militar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #D8D0B9;
+  padding-bottom: 1.2rem;
+  font-family: var(--fuente-mono-tecnica);
+  color: #D8D0B9;
+}
+
+.tapa-sello-rojo {
+  color: #A52D27;
+  border: 3px dashed #A52D27;
+  padding: 0.4rem 0.8rem;
+  font-family: var(--fuente-mecanografia);
+  font-weight: bold;
+  transform: rotate(-4deg);
+  background-color: rgba(165, 45, 39, 0.1);
+}
+
+.tapa-centro {
+  margin: 3rem 0;
+  color: #FAF6EE;
+  text-align: center;
+}
+
+.tapa-codigo {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  color: #D8D0B9;
+  margin-bottom: 0.8rem;
+}
+
+.tapa-titulo {
+  font-family: var(--fuente-mecanografia);
+  font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+  text-transform: uppercase;
+}
+
+.tapa-pie {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  color: #A29C8B;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+/* Documento interior que emerge al abrirse la carpeta */
+.expediente-doc-interior {
+  position: relative;
+  background-color: #FAF6EE;
+  border: 2px solid var(--color-verde-oscuro);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  padding: 2.8rem 2.4rem;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  z-index: 3;
+}
+
+.doc-cabecera-oficial {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--color-tinta-maquina);
+  padding-bottom: 1.2rem;
+  gap: 1rem;
+}
+
+.doc-btn-cerrar {
+  background: none;
+  border: 1px solid var(--color-tinta-maquina);
+  color: var(--color-tinta-maquina);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transicion-suave);
+  flex-shrink: 0;
+}
+
+.doc-btn-cerrar:hover {
+  background-color: var(--color-sello-rojo);
+  color: #FFFFFF;
+  border-color: var(--color-sello-rojo);
+}
+
+.doc-clasificacion {
+  color: var(--color-sello-rojo);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.doc-codigo {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.88rem;
+  color: var(--color-tinta-suave);
+}
+
+.doc-titulo-principal {
+  font-family: var(--fuente-mecanografia);
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  line-height: 1.25;
+  color: var(--color-tinta-maquina);
+}
+
+.doc-subtitulo {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.95rem;
+  color: var(--color-tinta-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.doc-seccion-bloque h4 {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-verde-militar);
+  margin-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--color-borde-suave);
+  padding-bottom: 0.3rem;
+}
+
+.doc-contexto-p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-align: justify;
+}
+
+.doc-lista-personajes, .doc-lista-datos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.doc-lista-personajes li, .doc-lista-datos li {
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-papel-fondo);
+  border-left: 3px solid var(--color-verde-militar);
+}
+
+.doc-cita-oficial {
+  background-color: #EFE9DC;
+  border-left: 4px solid var(--color-sello-rojo);
+  padding: 1rem 1.2rem;
+  font-family: var(--fuente-mecanografia);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-tinta-maquina);
+}
+
+.doc-fuente-academica {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.82rem;
+  color: var(--color-tinta-suave);
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--color-borde-suave);
+}
+
+/* Estilo personalizado de SweetAlert2 */
+.swal-archivo-custom {
+  border: 3px solid var(--color-verde-militar) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+}
+
+.swal2-title {
+  font-family: var(--fuente-mecanografia) !important;
+  color: var(--color-verde-militar) !important;
+  font-size: 1.4rem !important;
+}
+
+/* ==========================================================
+   ACCESIBILIDAD Y RESPONSIVE
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 4.5rem;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .chart-wrapper-papel {
+    height: 320px;
+    padding: 0.4rem;
+  }
+
+  .expediente-doc-interior {
+    padding: 2rem 1.4rem;
+  }
+
+  .carpeta-tapa-frontal {
+    display: none; /* En pantallas pequeñas se abre directamente el documento */
   }
 }

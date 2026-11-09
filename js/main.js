@@ -38,24 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleActions: 'play none none none'
           },
           opacity: 0,
-          y: 45,
-          duration: 0.85,
+          y: 35,
+          duration: 0.7,
           ease: 'power2.out'
         });
       }
-    });
-
-    // Aparición escalonada de las tarjetas de hitos
-    gsap.from('.hito-card', {
-      scrollTrigger: {
-        trigger: '.hitos-grid',
-        start: 'top 85%'
-      },
-      opacity: 0,
-      y: 25,
-      duration: 0.6,
-      stagger: 0.18,
-      ease: 'power2.out'
     });
   }
 

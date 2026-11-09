@@ -287,12 +287,14 @@ body {
 }
 
 .hito-card {
+  opacity: 1 !important;
+  visibility: visible !important;
   background: var(--color-papel-fondo);
   border: 1px dashed var(--color-borde-suave);
   border-top: 3px solid var(--color-tinta-maquina);
   padding: 1.1rem;
   font-size: 0.95rem;
-  transition: var(--transicion-suave);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 

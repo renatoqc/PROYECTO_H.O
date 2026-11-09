@@ -1262,3 +1262,217 @@ body {
     display: none; /* En pantallas pequeñas se abre directamente el documento */
   }
 }
+
+/* ==========================================================
+   SALA DE PROYECCIÓN Y SUBIDA DE VIDEOS (KINO-CRÓNICA)
+   ========================================================== */
+.seccion-proyector-video {
+  position: relative;
+  background-color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-borde-suave);
+  box-shadow: var(--sombra-hoja);
+  padding: 3rem 2.5rem;
+  border-radius: 2px;
+}
+
+.proyector-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.8rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .proyector-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Pantalla del proyector cinematográfico */
+.marco-proyector-pantalla {
+  position: relative;
+  background-color: #0E1410;
+  border: 3px solid var(--color-verde-oscuro);
+  border-radius: 3px;
+  box-shadow: inset 0 0 25px rgba(0,0,0,0.8), 0 8px 20px rgba(0,0,0,0.25);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pantalla-video-tag, .pantalla-iframe-tag {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: contain;
+}
+
+/* Filtros cinematográficos */
+.filtro-sepia .pantalla-video-tag, .filtro-sepia .pantalla-iframe-tag {
+  filter: sepia(70%) contrast(115%) brightness(90%);
+}
+
+.filtro-bw .pantalla-video-tag, .filtro-bw .pantalla-iframe-tag {
+  filter: grayscale(100%) contrast(125%) brightness(95%);
+}
+
+.barra-visor-estado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-verde-oscuro);
+  color: var(--color-papel-envejecido);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--color-verde-militar);
+  border-top: none;
+}
+
+/* Panel de carga y subida de videos */
+.panel-carga-video {
+  background-color: var(--color-papel-fondo);
+  border: 1px dashed var(--color-borde-suave);
+  border-top: 4px solid var(--color-verde-militar);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-radius: 2px;
+}
+
+.bloque-carga-opcion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.titulo-carga-opcion {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-verde-militar);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Botón estilizado para subir archivo de video local */
+.input-archivo-oculto {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.btn-subir-archivo-estilo {
+  background-color: var(--color-verde-militar);
+  color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-verde-oscuro);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: var(--transicion-suave);
+  text-align: center;
+}
+
+.btn-subir-archivo-estilo:hover {
+  background-color: var(--color-sello-rojo);
+  color: #FFFFFF;
+}
+
+/* Entrada de enlace URL o YouTube */
+.grupo-input-url {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.input-video-texto {
+  flex-grow: 1;
+  background-color: #FAF6EE;
+  border: 1px solid var(--color-borde-suave);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.82rem;
+  padding: 0.55rem 0.75rem;
+  color: var(--color-tinta-maquina);
+  outline: none;
+}
+
+.input-video-texto:focus {
+  border-color: var(--color-verde-militar);
+}
+
+.btn-cargar-url {
+  background-color: var(--color-verde-militar);
+  color: var(--color-papel-tarjeta);
+  border: none;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0 0.9rem;
+  cursor: pointer;
+  transition: var(--transicion-suave);
+}
+
+.btn-cargar-url:hover {
+  background-color: var(--color-sello-rojo);
+}
+
+/* Botones de filtros de celuloide */
+.grupo-filtros-cine {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+}
+
+.btn-filtro-cine {
+  background-color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-borde-suave);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+  transition: var(--transicion-suave);
+}
+
+.btn-filtro-cine:hover {
+  background-color: var(--color-verde-militar);
+  color: #FFFFFF;
+}
+
+/* Selector de rollos predefinidos */
+.lista-clips-archivo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.btn-clip-predefinido {
+  background-color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-borde-suave);
+  border-left: 3px solid var(--color-verde-militar);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  padding: 0.45rem 0.65rem;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transicion-suave);
+}
+
+.btn-clip-predefinido:hover, .btn-clip-predefinido.activo {
+  background-color: var(--color-verde-oscuro);
+  color: var(--color-papel-tarjeta);
+  border-left-color: var(--color-sello-rojo);
+}

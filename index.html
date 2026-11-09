@@ -30,6 +30,7 @@
         <li><a href="#contexto" class="nav-link-archivo"><i data-lucide="file-text"></i> Contexto</a></li>
         <li><a href="#estadisticas" class="nav-link-archivo"><i data-lucide="bar-chart-2"></i> Gosplán</a></li>
         <li><a href="#galeria" class="nav-link-archivo"><i data-lucide="image"></i> Evidencias</a></li>
+        <li><a href="#proyector-cine" class="nav-link-archivo"><i data-lucide="film"></i> Filmoteca</a></li>
         <li><a href="#relaciones" class="nav-link-archivo"><i data-lucide="share-2"></i> Red Causal</a></li>
       </ul>
     </div>
@@ -333,6 +334,81 @@
         </div>
       </section>
 
+      <!-- Nueva Sección Audiovisual: Sala de Proyección y Subida de Videos -->
+      <section class="seccion-proyector-video" id="proyector-cine" aria-labelledby="titulo-cine-id">
+        <header class="cabecera-red">
+          <span class="informe-folio">KINO-CRÓNICA CENTRAL // FONDOS AUDIOVISUALES DESCLASIFICADOS</span>
+          <h2 class="informe-titulo" id="titulo-cine-id">Filmoteca y Sala de Proyecciones Históricas</h2>
+          <p class="instruccion-red">
+            ✦ Reproduce material de archivo de época o sube tus propios videos desde tu computadora o enlaces web para proyectarlos con filtros de época.
+          </p>
+        </header>
+
+        <div class="proyector-layout">
+          <!-- Pantalla del Proyector Vintage -->
+          <div>
+            <div id="marco-proyector-pantalla" class="marco-proyector-pantalla">
+              <!-- Video local cargado -->
+              <video id="reproductor-video-archivo" class="pantalla-video-tag" controls style="display: none;"></video>
+              <!-- Iframe para YouTube o enlaces externos -->
+              <iframe id="reproductor-iframe-archivo" class="pantalla-iframe-tag" src="https://www.youtube.com/embed/5a3r7G-7k-c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="barra-visor-estado">
+              <span id="proyector-titulo-clip">ROLLO ARCHIVÍSTICO: CONSTRUCCIÓN INDUSTRIAL URSS (1930s)</span>
+              <span>ESTADO: PROYECTOR ACTIVO</span>
+            </div>
+          </div>
+
+          <!-- Panel de Control y Carga de Videos -->
+          <div class="panel-carga-video">
+            <!-- Opción 1: Subir archivo de video local desde la computadora -->
+            <div class="bloque-carga-opcion">
+              <span class="titulo-carga-opcion"><i data-lucide="upload-cloud"></i> Subir Video desde tu PC</span>
+              <input type="file" id="input-video-archivo" class="input-archivo-oculto" accept="video/mp4,video/webm,video/ogg">
+              <label for="input-video-archivo" class="btn-subir-archivo-estilo">
+                <i data-lucide="file-video"></i> Seleccionar Video (.mp4, .webm)
+              </label>
+              <span style="font-family: var(--fuente-mono-tecnica); font-size: 0.72rem; color: var(--color-tinta-suave);">El archivo de video se proyectará al instante en el visor superior.</span>
+            </div>
+
+            <!-- Opción 2: Cargar enlace web o YouTube -->
+            <div class="bloque-carga-opcion">
+              <span class="titulo-carga-opcion"><i data-lucide="link"></i> O Pegar Enlace (YouTube / Web)</span>
+              <div class="grupo-input-url">
+                <input type="url" id="input-video-url" class="input-video-texto" placeholder="https://youtube.com/watch?v=...">
+                <button id="btn-cargar-video-url" class="btn-cargar-url" title="Cargar enlace">Cargar</button>
+              </div>
+            </div>
+
+            <!-- Opción 3: Filtros de celuloide -->
+            <div class="bloque-carga-opcion">
+              <span class="titulo-carga-opcion"><i data-lucide="sliders"></i> Filtro de Celuloide</span>
+              <div class="grupo-filtros-cine">
+                <button id="btn-filtro-normal" class="btn-filtro-cine">Original</button>
+                <button id="btn-filtro-sepia" class="btn-filtro-cine">Sepia 1930s</button>
+                <button id="btn-filtro-bw" class="btn-filtro-cine">B/N Archivo</button>
+              </div>
+            </div>
+
+            <!-- Opción 4: Rollos Históricos Recomendados -->
+            <div class="bloque-carga-opcion">
+              <span class="titulo-carga-opcion"><i data-lucide="film"></i> Rollos Históricos del Archivo</span>
+              <div class="lista-clips-archivo">
+                <button class="btn-clip-predefinido activo" data-tipo="youtube" data-fuente="https://www.youtube.com/embed/5a3r7G-7k-c" data-titulo="ROLLO N° 1: INDUSTRIALIZACIÓN Y CONSTRUCCIÓN DE CIUDADES DE ACERO">
+                  ▶ Noticiero: Magnitogorsk y la Épica del Acero
+                </button>
+                <button class="btn-clip-predefinido" data-tipo="youtube" data-fuente="https://www.youtube.com/embed/0xG_6XkKxGQ" data-titulo="ROLLO N° 2: PROPAGANDA Y DESFILES EN LA PLAZA ROJA">
+                  ▶ Noticiero: Movilización y Culto al Líder (1936)
+                </button>
+                <button class="btn-clip-predefinido" data-tipo="youtube" data-fuente="https://www.youtube.com/embed/K8w3m_p3h6k" data-titulo="ROLLO N° 3: EL GULAG Y LA INFRAESTRUCTURA FORZADA">
+                  ▶ Noticiero: Obras del Belomorkanal
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Sección 3: Red Interactiva de Relaciones Históricas -->
       <section class="seccion-red-historica" id="relaciones" aria-labelledby="titulo-red-id">
         <header class="cabecera-red">
@@ -482,6 +558,7 @@
   <script src="js/dossier-modal.js" defer></script>
   <script src="js/charts.js" defer></script>
   <script src="js/gallery.js" defer></script>
+  <script src="js/video-player.js" defer></script>
   <script src="js/network.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>

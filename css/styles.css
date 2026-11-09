@@ -272,12 +272,18 @@ body {
   line-height: 1;
 }
 
-/* Cuadrícula de hitos */
+/* Cuadrícula de hitos (3 columnas en una sola fila en escritorio) */
 .hitos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
   margin: 1.5rem 0 2rem;
+}
+
+@media (max-width: 860px) {
+  .hitos-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .hito-card {

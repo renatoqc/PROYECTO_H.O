@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Revelado progresivo al scrollear entre secciones
     const secciones = [
-      '.informe-documento',
       '.seccion-chart-gosplan',
       '.seccion-galeria',
       '.seccion-red-historica'

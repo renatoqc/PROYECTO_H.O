@@ -931,10 +931,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: pointer !important;
   font-family: var(--fuente-mono-tecnica);
   font-weight: bold;
   transition: var(--transicion-suave);
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  user-select: none;
+}
+
+.swiper-btn-prev svg, .swiper-btn-next svg {
+  pointer-events: none;
 }
 
 .swiper-btn-prev:hover, .swiper-btn-next:hover {

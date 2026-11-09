@@ -9,19 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
       fecha: '21 DE ENERO DE 1924 – NOVIEMBRE DE 1928',
       titulo: 'El Ocaso de la NEP y la Muerte de Lenin',
       subtitulo: 'Fin del compromiso mercantil y pugna por la sucesión en el Comité Central',
-      contexto: 'Tras el deceso de Vladímir Ilich Lenin en Gorki, la dirección colectiva bolchevique se fracturó. La Nueva Política Económica (NEP), diseñada en 1921 como una tregua táctica con el campesinado, permitía el comercio privado menor. Para Stalin, la lentitud del crecimiento industrial bajo la NEP amenazaba con dejar indefensa a la URSS frente a las potencias capitalistas. Entre 1924 y 1928, Stalin maniobró hábilmente aliándose primero con la derecha del partido (Bujarin) para marginar a Trotski, para luego liquidar a los partidarios de la propia NEP e imponer la colectivización forzosa.',
+      contexto: 'Tras la muerte de Lenin en 1924, la cúpula bolchevique se dividió. Para Stalin, la Nueva Política Económica (NEP) era lenta e incompatible con la seguridad de la URSS frente a las potencias capitalistas. Maniobró políticamente para aislar a Trotski y Bujarin, liquidando el comercio privado para imponer la industrialización y colectivización forzosas.',
       personajes: [
         { nombre: 'Iósif V. Stalin', rol: 'Secretario General del PCUS; artífice del viraje industrializador.' },
-        { nombre: 'Nikolái Bujarin', rol: 'Defensor de la NEP y enriquecimiento gradual campesino; purgado posteriormente.' },
+        { nombre: 'Nikolái Bujarin', rol: 'Defensor de la NEP y del campesinado; purgado posteriormente.' },
         { nombre: 'Lev Trotski', rol: 'Líder de la Oposición de Izquierda; desterrado en 1929 y asesinado en 1940.' }
       ],
       datosClave: [
-        'Producción industrial en 1924: apenas alcanzaba el 35% del nivel de 1913 previo a la guerra.',
-        'Crisis de acopio de grano (1927–1928): los campesinos retuvieron cosechas por los bajos precios fijados por el Estado.',
-        'Diciembre de 1927: el XV Congreso del PCUS aprueba las directrices para el Primer Plan Quinquenal.'
+        'La producción fabril en 1924 apenas llegaba al 35% del nivel previo a la Gran Guerra.',
+        'Diciembre de 1927: El XV Congreso aprueba el fin de la NEP y el 1° Plan Quinquenal.'
       ],
-      cita: '«No podemos permitir que el destino de la patria de los trabajadores dependa de los caprichos del kulak y el comerciante privado.» — Informe interno al Politburó, 1928.',
-      fuente: 'Archivos Estatales de la Federación Rusa (GARF), fondo 5446; Cohen, S. (1973), "Bukharin and the Bolshevik Revolution".'
+      cita: '«No podemos permitir que el destino de la patria dependa de los caprichos del kulak y el comerciante privado.» — Informe al Politburó, 1928.',
+      fuente: 'Archivos Estatales de la Federación Rusa (GARF), fondo 5446.'
     },
     'exp-viraje-1928': {
       codigo: 'EXP-1928-IND-02',
@@ -29,39 +28,37 @@ document.addEventListener('DOMContentLoaded', () => {
       fecha: 'OCTUBRE DE 1928 – DICIEMBRE DE 1932',
       titulo: 'El Gran Viraje y el Primer Plan Quinquenal',
       subtitulo: 'La industrialización a marchas forzadas y la forja del acero',
-      contexto: 'El Gran Viraje (Veliki Perelom) proclamó la subordinación total de la economía a la industria pesada: siderurgia, generación hidroeléctrica, minería del carbón y maquinaria bélica. Bajo directrices implacables del Gosplán, se crearon ciudades enteras en la estepa desde cero, como el coloso metalúrgico de Magnitogorsk al pie del monte Magnítnaya. Cientos de miles de brigadistas y trabajadores forzados trabajaron en condiciones polares sin maquinaria moderna, motivados por una intensa propaganda y castigados si no cumplían las cuotas.',
+      contexto: 'El Gran Viraje subordinó la economía a la industria pesada y armamentística. Bajo directrices implacables del Gosplán, se crearon ciudades siderúrgicas en la estepa como Magnitogorsk. Cientos de miles de brigadistas y deportados trabajaron en condiciones extremas motivados por propaganda y castigados si incumplían las cuotas de carbón y acero.',
       personajes: [
-        { nombre: 'Valerián Kúibyshev', rol: 'Presidente del Gosplán y del Sóviet Supremo de Economía Nacional.' },
+        { nombre: 'Valerián Kúibyshev', rol: 'Presidente del Gosplán; organizador de las metas quinquenales.' },
         { nombre: 'Sergó Ordzhonikidze', rol: 'Comisario del Pueblo para la Industria Pesada (Narkomtiazhprom).' },
-        { nombre: 'Ingenieros extranjeros', rol: 'Más de 1,500 técnicos estadounidenses y alemanes contratados bajo estricta vigilancia.' }
+        { nombre: 'Técnicos extranjeros', rol: 'Más de 1,500 ingenieros occidentales contratados bajo vigilancia.' }
       ],
       datosClave: [
-        'Construcción de la central DneproGES: la mayor planta hidroeléctrica de Europa en su época.',
-        'Metas de producción irreales: se exigió quintuplicar la extracción de hierro en cuatro años.',
-        'Tasa de inversión récord: más del 40% del ingreso nacional se reorientó a la industria pesada.'
+        'Construcción de la central DneproGES: la mayor hidroeléctrica europea de su tiempo.',
+        'Más del 40% del ingreso nacional se reorientó exclusivamente a la industria pesada.'
       ],
-      cita: '«Nos encontramos con un retraso de 50 o 100 años respecto a los países avanzados. Debemos recorrer esta distancia en 10 años. O lo logramos, o nos aplastarán.» — Iósif Stalin, 4 de febrero de 1931.',
-      fuente: 'Davies, R. W. (1989), "The Industrialisation of Soviet Russia"; Kotkin, S. (1995), "Magnetic Mountain: Stalinism as a Civilization".'
+      cita: '«Tenemos un retraso de 50 o 100 años respecto a los países avanzados. Debemos recorrerlo en 10 años o nos aplastarán.» — Iósif Stalin, 1931.',
+      fuente: 'Davies, R. W. (1989), "The Industrialisation of Soviet Russia".'
     },
     'exp-colectivizacion': {
       codigo: 'EXP-1929-COL-03',
-      clasificacion: 'ESTRICTAMENTE RESERVADO // COMISARIADO DE AGRICULTURA',
+      clasificacion: 'ESTRICTAMENTE RESERVADO // AGRICULTURA',
       fecha: 'NOVIEMBRE DE 1929 – MARZO DE 1933',
       titulo: 'Colectivización Forzada y "Deskulakización"',
       subtitulo: 'Expropiación masiva, requisa de grano y la hambruna del Holodomor',
-      contexto: 'Para financiar la compra de maquinaria pesada occidental, el Estado soviético requería exportar grano masivamente. La solución de Stalin fue liquidar la propiedad individual agraria y forzar a más de 25 millones de familias campesinas a ingresar en Koljoses (granjas colectivas) o Sovjoses (granjas estatales). Aquellos que se resistieron al despojo fueron etiquetados como "kulaks". Mediante la orden de "liquidación de los kulaks como clase", cientos de miles fueron fusilados y cerca de 2 millones fueron deportados a regiones inhóspitas de Siberia y Asia Central.',
+      contexto: 'Para financiar maquinaria pesada mediante la exportación de grano, el Estado forzó a 25 millones de familias campesinas a ingresar en Koljoses. Quienes opusieron resistencia fueron tachados de "kulaks", desatando ejecuciones y cerca de 2 millones de deportados a Siberia. La requisa implacable derivó en la catastrófica hambruna del Holodomor.',
       personajes: [
-        { nombre: 'Iósif V. Stalin', rol: 'Ordenó la liquidación integral y requisas sin concesiones.' },
-        { nombre: 'Viacheslav Mólotov', rol: 'Enviado plenipotenciario a Ucrania para asegurar la extracción total del grano.' },
-        { nombre: 'Campesinado ucraniano y cosaco', rol: 'Víctimas de la confiscación armada y el confinamiento militar.' }
+        { nombre: 'Iósif V. Stalin', rol: 'Ordenó la liquidación del kulak como clase y requisas sin concesión.' },
+        { nombre: 'Viacheslav Mólotov', rol: 'Comisionado en Ucrania para confiscar hasta la última reserva de grano.' },
+        { nombre: 'Campesinado rural', rol: 'Víctimas del despojo de tierras, ganado y confinamiento militar.' }
       ],
       datosClave: [
-        'Ley de las Cinco Espigas (1932): castigaba con fusilamiento o 10 años de GULAG el robo de un puñado de grano de los campos colectivos.',
-        'Bloqueo militar de fronteras en Ucrania y Kubán para impedir la huida de la población hambrienta.',
-        'Mortalidad catastrófica: se estima entre 3.5 y 5 millones de fallecidos por la hambruna en Ucrania (Holodomor) y 1.5 millones en Kazajistán.'
+        'Ley de las Cinco Espigas (1932): Fusilamiento o 10 años de GULAG por hurtar un puñado de grano.',
+        'Entre 3.5 y 5 millones de muertes por inanición en Ucrania y 1.5 millones en Kazajistán.'
       ],
-      cita: '«Para desplazar a los kulaks como clase, debemos quebrar abiertamente su resistencia en una batalla implacable.» — Discurso de Stalin, diciembre de 1929.',
-      fuente: 'Conquest, Robert (1986), "The Harvest of Sorrow"; Applebaum, Anne (2017), "Red Famine: Stalin\'s War on Ukraine".'
+      cita: '«Para desplazar a los kulaks como clase, debemos quebrar abiertamente su resistencia.» — Iósif Stalin, 1929.',
+      fuente: 'Conquest, Robert (1986), "The Harvest of Sorrow"; Archivos GARF.'
     },
     'exp-magnitogorsk': {
       codigo: 'EXP-1932-MAG-04',
@@ -69,19 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
       fecha: '1929 – 1936',
       titulo: 'Magnitogorsk: La Forja del Socialismo',
       subtitulo: 'Construcción del mayor complejo metalúrgico del mundo en los Urales',
-      contexto: 'Inspirada en la planta siderúrgica de Gary (Indiana, EE. UU.), Magnitogorsk fue diseñada por la firma estadounidense Arthur McKee & Co. y levantada por una masa de trabajadores voluntarios del Komsomol, desempleados forzados y decenas de miles de deportados "deskulakizados". Las temperaturas en invierno descendían hasta -40 °C mientras miles vivían en tiendas de campaña de lona y chozas de barro. Hacia 1939, producía un tercio del acero y la mitad de los blindajes de tanques de toda la Unión Soviética.',
+      contexto: 'Construida al pie del monte Magnítnaya con asesoría técnica estadounidense, Magnitogorsk fue levantada en tiempo récord por voluntarios del Komsomol y miles de deportados forzados a temperaturas de -40 °C. Hacia 1939 abastecía un tercio del acero y los blindajes blindados de tanques soviéticos.',
       personajes: [
-        { nombre: 'Aleksandr Zavenyaguin', rol: 'Director del Combinado Metalúrgico de Magnitogorsk (MMK).' },
-        { nombre: 'John Scott', rol: 'Soldador estadounidense que documentó la epopeya y el terror diario en la fábrica.' },
-        { nombre: 'Brigadistas del Komsomol', rol: 'Juventud movilizada por la mística revolucionaria del acero.' }
+        { nombre: 'Aleksandr Zavenyaguin', rol: 'Director general del Combinado Metalúrgico (MMK).' },
+        { nombre: 'John Scott', rol: 'Soldador estadounidense que documentó la epopeya fabril y el terror diario.' },
+        { nombre: 'Brigadistas Komsomol', rol: 'Jóvenes movilizados por la mística revolucionaria del acero.' }
       ],
       datosClave: [
         'Alto Horno N° 1 encendido el 31 de enero de 1932.',
-        'Más del 30% de la fuerza laboral original eran presos políticos y colonos especiales bajo vigilancia de la OGPU/NKVD.',
-        'La acería proveyó el acero para los tanques T-34 que derrotaron a las divisiones blindadas nazis en 1943.'
+        'Proveyó el acero fundido para los tanques T-34 decisivos en la Segunda Guerra Mundial.'
       ],
-      cita: '«Construíamos con picos y palas congeladas, pero sentíamos que estábamos levantando el futuro sobre el lomo del mundo antiguo.» — John Scott, "Beyond the Urals".',
-      fuente: 'Scott, John (1942), "Behind the Urals: An American Worker in Russia\'s City of Steel".'
+      cita: '«Construíamos con picos congelados, pero sentíamos que levantábamos el futuro.» — John Scott, 1942.',
+      fuente: 'Scott, John (1942), "Behind the Urals".'
     },
     'exp-belomorkanal': {
       codigo: 'EXP-1933-GUL-05',
@@ -89,19 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
       fecha: 'NOVIEMBRE DE 1931 – AGOSTO DE 1933',
       titulo: 'El Belomorkanal y la Génesis del GULAG',
       subtitulo: 'Trabajo forzado, la "perekovka" (reforja moral) y el canal Báltico-Mar Blanco',
-      contexto: 'El canal Mar Blanco-Báltico (Belomorkanal) fue el primer megaproyecto construido casi exclusivamente mediante trabajo esclavo de prisioneros del campo de concentración Belbaltlag. Supervisado por Guénrij Yagoda y Matvéi Berman, el canal de 227 kilómetros se cavó en solo 20 meses sin excavadoras modernas, utilizando herramientas de madera, palas y carretillas manuales. La propaganda soviética proclamó el concepto de "perekovka" (la reforja del delincuente a través del trabajo socialista), mientras entre 12,000 y 25,000 prisioneros murieron de agotamiento y frío.',
+      contexto: 'Fue el primer megaproyecto construido casi íntegramente con mano de obra esclava del campo Belbaltlag. Supervisado por el NKVD, 227 kilómetros se excavaron en 20 meses sin maquinaria pesada. La propaganda proclamó la "reforja" del delincuente, mientras miles perecían de frío y agotamiento en la roca ártica.',
       personajes: [
-        { nombre: 'Guénrij Yagoda', rol: 'Segundo jefe de la OGPU; condecorado con la Orden de Lenin por el canal.' },
-        { nombre: 'Naftali Frenkel', rol: 'Ex prisionero de Solovkí que diseñó el sistema de raciones calóricas según metros cúbicos de tierra movidos.' },
-        { nombre: 'Máximo Gorki', rol: 'Escritor que lideró la delegación de autores para ensalzar el canal en un libro conmemorativo.' }
+        { nombre: 'Guénrij Yagoda', rol: 'Subdirector de la policía política; organizador del trabajo concentracionario.' },
+        { nombre: 'Naftali Frenkel', rol: 'Diseñó el racionamiento calórico según metros cúbicos de tierra excavada.' },
+        { nombre: 'Máximo Gorki', rol: 'Escritor que encabezó la delegación oficial para glorificar la obra.' }
       ],
       datosClave: [
-        '227 kilómetros de longitud a través de roca granítica y pantanos de Carelia.',
-        'Tiempo récord: 20 meses (noviembre 1931 – julio 1933).',
-        'Falla de ingeniería: debido a la prisa propagandística, se cavó con solo 3.6 metros de profundidad, haciéndolo inútil para la mayoría de buques de guerra.'
+        '227 kilómetros cavados con palas y carretillas manuales en 20 meses.',
+        'Entre 12,000 y 25,000 prisioneros murieron durante la construcción.'
       ],
-      cita: '«Los prisioneros se convirtieron en piedras angulares del canal. Su sudor derritió el hielo y su esfuerzo forjó al hombre nuevo.» — Libro conmemorativo del Belomorkanal, 1934.',
-      fuente: 'Applebaum, Anne (2003), "Gulag: A History"; Solzhenitsyn, Aleksandr (1973), "Archipiélago Gulag".'
+      cita: '«Los prisioneros fueron las piedras angulares del canal. Su esfuerzo forjó al hombre nuevo.» — Libro conmemorativo, 1934.',
+      fuente: 'Applebaum, Anne (2003), "Gulag: A History".'
     },
     'exp-purgas-1937': {
       codigo: 'EXP-1937-TER-06',
@@ -109,19 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
       fecha: 'JULIO DE 1936 – NOVIEMBRE DE 1938',
       titulo: 'La Gran Purga y el Gran Terror (Yezhóvshchina)',
       subtitulo: 'Juicios de Moscú, cuotas de fusilamiento y descabezamiento del Ejército Rojo',
-      contexto: 'El asesinato de Serguéi Kírov en 1934 desató una espiral represiva que culminó entre 1937 y 1938 con el Gran Terror. Bajo la dirección de Nikolái Yezhov, el Politburó emitió la Orden N° 00447, estableciendo "cuotas" territoriales de personas a fusilar (Categoría 1) o enviar 10 años al GULAG (Categoría 2). Los jerarcas locales del partido competían por pedir aumentos de cuota para demostrar su lealtad. Simultáneamente, tres grandes juicios públicos en Moscú forzaron a la vieja guardia bolchevique (Zinóviev, Kámenev, Bujarin) a confesar crímenes inverosímiles de conspiración con la Gestapo.',
+      contexto: 'Bajo la conducción de Stalin y Nikolái Yezhov, el NKVD emitió cuotas regionales de arrestos y ejecuciones inmediatas. Mediante confesiones obtenidas bajo tortura y tres grandes juicios públicos, se liquidó a los antiguos dirigentes bolcheviques y al 80% del alto mando militar en vísperas del conflicto mundial.',
       personajes: [
-        { nombre: 'Nikolái Yezhov', rol: 'Comisario del Pueblo del NKVD apodado "el enano de hierro"; ejecutado en 1940.' },
-        { nombre: 'Andréi Vyshinski', rol: 'Fiscal General de la URSS célebre por su lema: "La confesión es la reina de las pruebas".' },
-        { nombre: 'Mijaíl Tujachevski', rol: 'Mariscal de la URSS fusilado junto al 80% del alto mando del Ejército Rojo en vísperas de la II Guerra Mundial.' }
+        { nombre: 'Nikolái Yezhov', rol: 'Comisario del NKVD; ejecutor del terror estatal (purgado en 1940).' },
+        { nombre: 'Andréi Vyshinski', rol: 'Fiscal General; artífice de la doctrina de la confesión inculpatoria.' },
+        { nombre: 'Mijaíl Tujachevski', rol: 'Mariscal de la URSS fusilado junto a la cúpula del Ejército Rojo.' }
       ],
       datosClave: [
-        '681,692 fusilamientos documentados en los archivos del NKVD entre 1937 y 1938 (más de 1,000 ejecuciones diarias).',
-        'Fosas comunes secretas como Butovo (Moscú), Levashovo (Leningrado) y Sandarmokh (Carelia).',
-        'Descabezamiento militar: 3 de los 5 mariscales soviéticos, 13 de 15 comandantes de ejército y miles de oficiales fueron purgados.'
+        '681,692 ejecuciones documentadas por el NKVD entre 1937 y 1938.',
+        'Descabezamiento militar: 3 de 5 mariscales y la mayoría de comandantes de división fueron purgados.'
       ],
-      cita: '«Fusilen a los perros rabiosos. Muerte a esa banda que oculta sus garras feroces bajo la máscara del partido.» — Andréi Vyshinski, alegato fiscal, 1938.',
-      fuente: 'Getty, J. Arch & Naumov, Oleg (1999), "The Road to Terror"; Memorial International (Archivos de víctimas del terror político).'
+      cita: '«Fusilen a los perros rabiosos. Muerte a los enemigos del pueblo.» — Andréi Vyshinski, 1938.',
+      fuente: 'Getty, J. A. (1999), "The Road to Terror"; Memorial International.'
     }
   };
 

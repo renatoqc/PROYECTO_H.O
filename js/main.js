@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Revelado progresivo al scrollear entre secciones
     const secciones = [
       '.seccion-chart-gosplan',
-      '.seccion-galeria',
       '.seccion-red-historica'
     ];
 

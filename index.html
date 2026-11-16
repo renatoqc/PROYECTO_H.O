@@ -10,9 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=EB+Garamond:wght@400;600&family=Special+Elite&display=swap" rel="stylesheet">
 
-  <!-- Swiper.js CSS para carrusel de evidencias -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
   <!-- Estilos del proyecto -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -29,7 +26,6 @@
         <li><a href="#inicio" class="nav-link-archivo"><i data-lucide="folder"></i> Carátula</a></li>
         <li><a href="#contexto" class="nav-link-archivo"><i data-lucide="file-text"></i> Contexto</a></li>
         <li><a href="#estadisticas" class="nav-link-archivo"><i data-lucide="bar-chart-2"></i> Gosplán</a></li>
-        <li><a href="#galeria" class="nav-link-archivo"><i data-lucide="image"></i> Evidencias</a></li>
         <li><a href="#proyector-cine" class="nav-link-archivo"><i data-lucide="film"></i> Filmoteca</a></li>
         <li><a href="#relaciones" class="nav-link-archivo"><i data-lucide="share-2"></i> Red Causal</a></li>
       </ul>
@@ -94,27 +90,27 @@
               <span class="hito-anio">ENERO DE 1924</span>
               <h3 class="hito-titulo">Muerte de Lenin y Pugna</h3>
               <p>Lucha por la sucesión en el Politburó y marginación definitiva de la oposición política.</p>
-              <span class="btn-abrir-expediente" style="margin-top:0.8rem; font-size:0.75rem;">
+              <button class="btn-abrir-expediente" style="margin-top:0.8rem; font-size:0.75rem;">
                 <i data-lucide="folder-open"></i> Abrir Expediente
-              </span>
+              </button>
             </section>
 
             <section class="hito-card" tabindex="0" data-expediente="exp-viraje-1928" title="Haz clic para abrir el expediente completo">
               <span class="hito-anio">1928 – 1929</span>
               <h3 class="hito-titulo">Abandono de la NEP</h3>
               <p>Fin del mercado agrario y lanzamiento del 1° Plan Quinquenal enfocado en la siderurgia pesada.</p>
-              <span class="btn-abrir-expediente" style="margin-top:0.8rem; font-size:0.75rem;">
+              <button class="btn-abrir-expediente" style="margin-top:0.8rem; font-size:0.75rem;">
                 <i data-lucide="folder-open"></i> Abrir Expediente
-              </span>
+              </button>
             </section>
 
             <section class="hito-card" tabindex="0" data-expediente="exp-colectivizacion" title="Haz clic para abrir el expediente completo">
               <span class="hito-anio">1929 EN ADELANTE</span>
               <h3 class="hito-titulo">Colectivización Forzada</h3>
               <p>Expropiación de tierras campesinas, requisa total de grano y deportación masiva de "kulaks".</p>
-              <span class="btn-abrir-expediente" style="margin-top:0.8rem; font-size:0.75rem;">
+              <button class="btn-abrir-expediente" style="margin-top:0.8rem; font-size:0.75rem;">
                 <i data-lucide="folder-open"></i> Abrir Expediente
-              </span>
+              </button>
             </section>
           </div>
 
@@ -167,245 +163,119 @@
         </div>
       </section>
 
-      <!-- Nueva Sección: Galería de Evidencias Fotográficas (Swiper.js) -->
-      <section class="seccion-galeria" id="galeria" aria-labelledby="titulo-galeria-id">
-        <header class="cabecera-red">
-          <span class="informe-folio">REGISTRO FOTOGRÁFICO DE INTELIGENCIA // FONDOS DESCLASIFICADOS</span>
-          <h2 class="informe-titulo" id="titulo-galeria-id">Evidencias Visuales del Periodo Estalinista</h2>
-          <p class="instruccion-red">
-            ✦ Desliza las placas fotográficas con las flechas. Haz clic en "Abrir Expediente" para desplegar la investigación detallada.
-          </p>
-        </header>
-
-        <!-- Carrusel Swiper -->
-        <div class="swiper swiper-evidencias">
-          <div class="swiper-wrapper">
-
-            <!-- Diapositiva 1: Magnitogorsk -->
-            <div class="swiper-slide tarjeta-evidencia-slide">
-              <div class="evidencia-foto-frame">
-                <div class="evidencia-sello-flotante">FOTO-DOC N° 01 // MMK</div>
-                <svg viewBox="0 0 400 240" class="evidencia-foto-img" style="background:#1B241E;">
-                  <rect width="400" height="240" fill="#202A23"/>
-                  <path d="M40 240 L100 80 L160 240 Z" fill="#2E3B32" stroke="#46574B" stroke-width="2"/>
-                  <path d="M140 240 L210 50 L280 240 Z" fill="#26322A" stroke="#46574B" stroke-width="2"/>
-                  <path d="M260 240 L310 110 L360 240 Z" fill="#2E3B32" stroke="#46574B" stroke-width="2"/>
-                  <line x1="210" y1="50" x2="210" y2="20" stroke="#A52D27" stroke-width="3"/>
-                  <circle cx="210" cy="18" r="4" fill="#A52D27"/>
-                  <text x="20" y="35" fill="#D8D0B9" font-family="'Courier Prime', monospace" font-size="12">COMPLEJO METALÚRGICO MAGNITOGORSK (URALES)</text>
-                  <text x="20" y="225" fill="#A52D27" font-family="'Special Elite', monospace" font-size="11">★ ACERO PARA LA INDUSTRIALIZACIÓN ★</text>
-                </svg>
-              </div>
-              <div class="evidencia-cuerpo">
-                <span class="evidencia-fecha">1929 – 1932 // ALTO HORNO N° 1</span>
-                <h3 class="evidencia-titulo">Magnitogorsk: La Montaña Magnética</h3>
-                <p class="evidencia-desc">Mayor acería de Eurasia levantada en tiempo récord bajo clima polar por brigadas juveniles y deportados forzados.</p>
-                <button class="btn-abrir-expediente" data-expediente="exp-magnitogorsk">
-                  <i data-lucide="book-open"></i> Abrir Expediente Completo
-                </button>
-              </div>
-            </div>
-
-            <!-- Diapositiva 2: Belomorkanal -->
-            <div class="swiper-slide tarjeta-evidencia-slide">
-              <div class="evidencia-foto-frame">
-                <div class="evidencia-sello-flotante">FOTO-DOC N° 02 // GULAG</div>
-                <svg viewBox="0 0 400 240" class="evidencia-foto-img" style="background:#18201B;">
-                  <rect width="400" height="240" fill="#1C2620"/>
-                  <path d="M0 160 Q150 120 400 170 L400 240 L0 240 Z" fill="#243028"/>
-                  <line x1="0" y1="130" x2="400" y2="130" stroke="#3E4F43" stroke-width="3" stroke-dasharray="6,4"/>
-                  <text x="20" y="35" fill="#D8D0B9" font-family="'Courier Prime', monospace" font-size="12">CANAL MAR BLANCO-BÁLTICO (BELOMORKANAL)</text>
-                  <text x="20" y="225" fill="#A52D27" font-family="'Special Elite', monospace" font-size="11">★ TRABAJO FORZADO Y REFORJA (PEREKOVKA) ★</text>
-                </svg>
-              </div>
-              <div class="evidencia-cuerpo">
-                <span class="evidencia-fecha">1931 – 1933 // BELBALTLAG</span>
-                <h3 class="evidencia-titulo">El Belomorkanal y la Expansión del GULAG</h3>
-                <p class="evidencia-desc">Canal de 227 km excavado a mano por más de 100,000 prisioneros, inaugurando el sistema de trabajo concentracionario.</p>
-                <button class="btn-abrir-expediente" data-expediente="exp-belomorkanal">
-                  <i data-lucide="book-open"></i> Abrir Expediente Completo
-                </button>
-              </div>
-            </div>
-
-            <!-- Diapositiva 3: Las Purgas de 1937 -->
-            <div class="swiper-slide tarjeta-evidencia-slide">
-              <div class="evidencia-foto-frame">
-                <div class="evidencia-sello-flotante">FOTO-DOC N° 03 // NKVD N° 00447</div>
-                <svg viewBox="0 0 400 240" class="evidencia-foto-img" style="background:#1E1C1A;">
-                  <rect width="400" height="240" fill="#23201D"/>
-                  <rect x="50" y="40" width="300" height="150" fill="#2D2824" stroke="#A52D27" stroke-width="2"/>
-                  <line x1="80" y1="70" x2="320" y2="70" stroke="#8A342E" stroke-width="2"/>
-                  <line x1="80" y1="100" x2="280" y2="100" stroke="#8A342E" stroke-width="1.5"/>
-                  <line x1="80" y1="130" x2="300" y2="130" stroke="#8A342E" stroke-width="1.5"/>
-                  <text x="70" y="170" fill="#A52D27" font-family="'Special Elite', monospace" font-size="13">★ CONDENADO: FUSILAMIENTO (CATEGORÍA 1) ★</text>
-                  <text x="20" y="25" fill="#D8D0B9" font-family="'Courier Prime', monospace" font-size="12">ORDEN OPERATIVA DEL COMITÉ CENTRAL</text>
-                </svg>
-              </div>
-              <div class="evidencia-cuerpo">
-                <span class="evidencia-fecha">1936 – 1938 // EL GRAN TERROR</span>
-                <h3 class="evidencia-titulo">Juicios de Moscú y Purgas del Partido</h3>
-                <p class="evidencia-desc">Campaña de terror que purgó a la vieja guardia bolchevique, mandos militares e intelectuales bajo confesiones forzadas.</p>
-                <button class="btn-abrir-expediente" data-expediente="exp-purgas-1937">
-                  <i data-lucide="book-open"></i> Abrir Expediente Completo
-                </button>
-              </div>
-            </div>
-
-            <!-- Diapositiva 4: DneproGES -->
-            <div class="swiper-slide tarjeta-evidencia-slide">
-              <div class="evidencia-foto-frame">
-                <div class="evidencia-sello-flotante">FOTO-DOC N° 04 // ELECTRIFICACIÓN</div>
-                <svg viewBox="0 0 400 240" class="evidencia-foto-img" style="background:#1B252C;">
-                  <rect width="400" height="240" fill="#1E2A32"/>
-                  <path d="M0 180 Q200 90 400 180 L400 240 L0 240 Z" fill="#2B3A44"/>
-                  <circle cx="200" cy="80" r="14" fill="#B7950B" opacity="0.8"/>
-                  <line x1="200" y1="95" x2="200" y2="150" stroke="#B7950B" stroke-width="2"/>
-                  <text x="20" y="35" fill="#D8D0B9" font-family="'Courier Prime', monospace" font-size="12">PRESA HIDROELÉCTRICA DNEPROGES (ZAPORIYIA)</text>
-                  <text x="20" y="225" fill="#A52D27" font-family="'Special Elite', monospace" font-size="11">★ ENERGÍA PARA LA CUENCA INDUSTRIAL ★</text>
-                </svg>
-              </div>
-              <div class="evidencia-cuerpo">
-                <span class="evidencia-fecha">1927 – 1932 // PLAN GOELRO</span>
-                <h3 class="evidencia-titulo">DneproGES: El Titán del Dniéper</h3>
-                <p class="evidencia-desc">Mayor central hidroeléctrica de Europa, motor del suministro energético para la industria pesada y del aluminio.</p>
-                <button class="btn-abrir-expediente" data-expediente="exp-viraje-1928">
-                  <i data-lucide="book-open"></i> Abrir Expediente Completo
-                </button>
-              </div>
-            </div>
-
-            <!-- Diapositiva 5: Requisas y Colectivización -->
-            <div class="swiper-slide tarjeta-evidencia-slide">
-              <div class="evidencia-foto-frame">
-                <div class="evidencia-sello-flotante">FOTO-DOC N° 05 // KOLJÓS</div>
-                <svg viewBox="0 0 400 240" class="evidencia-foto-img" style="background:#28231D;">
-                  <rect width="400" height="240" fill="#2E2822"/>
-                  <line x1="40" y1="200" x2="360" y2="200" stroke="#8A342E" stroke-width="3"/>
-                  <path d="M80 200 L120 120 L160 200 Z" fill="#3D352D"/>
-                  <path d="M220 200 L260 130 L300 200 Z" fill="#3D352D"/>
-                  <text x="20" y="35" fill="#D8D0B9" font-family="'Courier Prime', monospace" font-size="12">DESKULAKIZACIÓN Y BRIGADAS DE REQUISA</text>
-                  <text x="20" y="225" fill="#A52D27" font-family="'Special Elite', monospace" font-size="11">★ CONFISCACIÓN TOTAL DE COSECHAS ★</text>
-                </svg>
-              </div>
-              <div class="evidencia-cuerpo">
-                <span class="evidencia-fecha">1929 – 1933 // CAMPAÑA DEL GRANO</span>
-                <h3 class="evidencia-titulo">Colectivización y Resistencia Campesina</h3>
-                <p class="evidencia-desc">Confiscación de tierras y cosechas que causó la hambruna del Holodomor y la liquidación del productor agrario independiente.</p>
-                <button class="btn-abrir-expediente" data-expediente="exp-colectivizacion">
-                  <i data-lucide="book-open"></i> Abrir Expediente Completo
-                </button>
-              </div>
-            </div>
-
-            <!-- Diapositiva 6: Muerte de Lenin y Ocaso NEP -->
-            <div class="swiper-slide tarjeta-evidencia-slide">
-              <div class="evidencia-foto-frame">
-                <div class="evidencia-sello-flotante">FOTO-DOC N° 06 // COMITÉ CENTRAL</div>
-                <svg viewBox="0 0 400 240" class="evidencia-foto-img" style="background:#1B201D;">
-                  <rect width="400" height="240" fill="#202622"/>
-                  <rect x="80" y="60" width="240" height="120" fill="#2A332E" stroke="#C2BAA6" stroke-width="1.5"/>
-                  <line x1="120" y1="90" x2="280" y2="90" stroke="#A52D27" stroke-width="2"/>
-                  <line x1="120" y1="120" x2="250" y2="120" stroke="#C2BAA6" stroke-width="1"/>
-                  <text x="20" y="35" fill="#D8D0B9" font-family="'Courier Prime', monospace" font-size="12">FUNERAL DE ESTADO Y TESTAMENTO POLÍTICO</text>
-                  <text x="20" y="225" fill="#A52D27" font-family="'Special Elite', monospace" font-size="11">★ DISPUTA POR EL CONTROL DEL PARTIDO ★</text>
-                </svg>
-              </div>
-              <div class="evidencia-cuerpo">
-                <span class="evidencia-fecha">1924 // GORKI - MOSCÚ</span>
-                <h3 class="evidencia-titulo">La Sucesión y el Fin de la Convivencia</h3>
-                <p class="evidencia-desc">El deceso de Lenin abrió la pugna que culminó con el triunfo de Stalin y la eliminación de la vieja guardia bolchevique.</p>
-                <button class="btn-abrir-expediente" data-expediente="exp-lenin-nep">
-                  <i data-lucide="book-open"></i> Abrir Expediente Completo
-                </button>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Controles de navegación del carrusel -->
-          <div class="swiper-nav-bar">
-            <div class="swiper-pagination"></div>
-            <div class="swiper-controles">
-              <button class="swiper-btn-prev" aria-label="Evidencia anterior"><i data-lucide="chevron-left"></i></button>
-              <button class="swiper-btn-next" aria-label="Evidencia siguiente"><i data-lucide="chevron-right"></i></button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Nueva Sección Audiovisual: Sala de Proyección y Subida de Videos -->
+      <!-- Sección: Filmoteca y Sala de Proyecciones Históricas -->
       <section class="seccion-proyector-video" id="proyector-cine" aria-labelledby="titulo-cine-id">
         <header class="cabecera-red">
-          <span class="informe-folio">KINO-CRÓNICA CENTRAL // FONDOS AUDIOVISUALES DESCLASIFICADOS</span>
+          <span class="informe-folio">ARCHIVO CINEMATOGRÁFICO MILITAR // KINO-CRÓNICA URSS</span>
           <h2 class="informe-titulo" id="titulo-cine-id">Filmoteca y Sala de Proyecciones Históricas</h2>
           <p class="instruccion-red">
-            ✦ Reproduce material de archivo de época o sube tus propios videos desde tu computadora o enlaces web para proyectarlos con filtros de época.
+            ✦ Registro audiovisual desclasificado del Politburó: propaganda, desarrollo industrial forzado y control militar.
           </p>
         </header>
 
-        <div class="proyector-layout">
-          <!-- Pantalla del Proyector Vintage -->
-          <div>
-            <div id="marco-proyector-pantalla" class="marco-proyector-pantalla">
-              <!-- Video local cargado -->
-              <video id="reproductor-video-archivo" class="pantalla-video-tag" controls style="display: none;"></video>
-              <!-- Iframe para YouTube o enlaces externos -->
-              <iframe id="reproductor-iframe-archivo" class="pantalla-iframe-tag" src="https://www.youtube.com/embed/5a3r7G-7k-c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="barra-visor-estado">
-              <span id="proyector-titulo-clip">ROLLO ARCHIVÍSTICO: CONSTRUCCIÓN INDUSTRIAL URSS (1930s)</span>
-              <span>ESTADO: PROYECTOR ACTIVO</span>
-            </div>
-          </div>
+        <!-- Cuadrícula Militar de 5 Cuadros de Video -->
+        <div class="grid-filmoteca-militar">
 
-          <!-- Panel de Control y Carga de Videos -->
-          <div class="panel-carga-video">
-            <!-- Opción 1: Subir archivo de video local desde la computadora -->
-            <div class="bloque-carga-opcion">
-              <span class="titulo-carga-opcion"><i data-lucide="upload-cloud"></i> Subir Video desde tu PC</span>
-              <input type="file" id="input-video-archivo" class="input-archivo-oculto" accept="video/mp4,video/webm,video/ogg">
-              <label for="input-video-archivo" class="btn-subir-archivo-estilo">
-                <i data-lucide="file-video"></i> Seleccionar Video (.mp4, .webm)
-              </label>
-              <span style="font-family: var(--fuente-mono-tecnica); font-size: 0.72rem; color: var(--color-tinta-suave);">El archivo de video se proyectará al instante en el visor superior.</span>
+          <!-- Cuadro 1: Magnitogorsk -->
+          <article class="caja-militar-video">
+            <div class="militar-caja-header">
+              <span class="militar-tag-codigo">CINTA MILITAR 01 // MMK</span>
+              <span class="militar-tag-clasif">★ ALTO SECRETO ★</span>
             </div>
-
-            <!-- Opción 2: Cargar enlace web o YouTube -->
-            <div class="bloque-carga-opcion">
-              <span class="titulo-carga-opcion"><i data-lucide="link"></i> O Pegar Enlace (YouTube / Web)</span>
-              <div class="grupo-input-url">
-                <input type="url" id="input-video-url" class="input-video-texto" placeholder="https://youtube.com/watch?v=...">
-                <button id="btn-cargar-video-url" class="btn-cargar-url" title="Cargar enlace">Cargar</button>
+            <div class="militar-marco-pantalla">
+              <iframe src="https://www.youtube.com/embed/5a3r7G-7k-c" title="La Forja de Magnitogorsk" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="militar-caja-cuerpo">
+              <span class="militar-fecha">1929 – 1932 // SIDERURGIA</span>
+              <h3 class="militar-titulo">La Forja de Magnitogorsk</h3>
+              <p class="militar-desc">Construcción acelerada del complejo siderúrgico en los Urales a 40 grados bajo cero.</p>
+              <div class="militar-caja-pie">
+                <span>FORMATO: 35 MM</span>
+                <span>FONDO: GARF-04</span>
               </div>
             </div>
+          </article>
 
-            <!-- Opción 3: Filtros de celuloide -->
-            <div class="bloque-carga-opcion">
-              <span class="titulo-carga-opcion"><i data-lucide="sliders"></i> Filtro de Celuloide</span>
-              <div class="grupo-filtros-cine">
-                <button id="btn-filtro-normal" class="btn-filtro-cine">Original</button>
-                <button id="btn-filtro-sepia" class="btn-filtro-cine">Sepia 1930s</button>
-                <button id="btn-filtro-bw" class="btn-filtro-cine">B/N Archivo</button>
+          <!-- Cuadro 2: Plaza Roja -->
+          <article class="caja-militar-video">
+            <div class="militar-caja-header">
+              <span class="militar-tag-codigo">CINTA MILITAR 02 // PARADA</span>
+              <span class="militar-tag-clasif">★ ESTADO MAYOR ★</span>
+            </div>
+            <div class="militar-marco-pantalla">
+              <iframe src="https://www.youtube.com/embed/0xG_6XkKxGQ" title="Desfile en la Plaza Roja" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="militar-caja-cuerpo">
+              <span class="militar-fecha">1936 // EJÉRCITO ROJO</span>
+              <h3 class="militar-titulo">Desfile en la Plaza Roja</h3>
+              <p class="militar-desc">Exhibición de divisiones mecanizadas, aviación y culto patriótico al liderazgo de Stalin.</p>
+              <div class="militar-caja-pie">
+                <span>FORMATO: 35 MM</span>
+                <span>FONDO: RGASPI-12</span>
               </div>
             </div>
+          </article>
 
-            <!-- Opción 4: Rollos Históricos Recomendados -->
-            <div class="bloque-carga-opcion">
-              <span class="titulo-carga-opcion"><i data-lucide="film"></i> Rollos Históricos del Archivo</span>
-              <div class="lista-clips-archivo">
-                <button class="btn-clip-predefinido activo" data-tipo="youtube" data-fuente="https://www.youtube.com/embed/5a3r7G-7k-c" data-titulo="ROLLO N° 1: INDUSTRIALIZACIÓN Y CONSTRUCCIÓN DE CIUDADES DE ACERO">
-                  ▶ Noticiero: Magnitogorsk y la Épica del Acero
-                </button>
-                <button class="btn-clip-predefinido" data-tipo="youtube" data-fuente="https://www.youtube.com/embed/0xG_6XkKxGQ" data-titulo="ROLLO N° 2: PROPAGANDA Y DESFILES EN LA PLAZA ROJA">
-                  ▶ Noticiero: Movilización y Culto al Líder (1936)
-                </button>
-                <button class="btn-clip-predefinido" data-tipo="youtube" data-fuente="https://www.youtube.com/embed/K8w3m_p3h6k" data-titulo="ROLLO N° 3: EL GULAG Y LA INFRAESTRUCTURA FORZADA">
-                  ▶ Noticiero: Obras del Belomorkanal
-                </button>
+          <!-- Cuadro 3: Belomorkanal -->
+          <article class="caja-militar-video">
+            <div class="militar-caja-header">
+              <span class="militar-tag-codigo">CINTA MILITAR 03 // GULAG</span>
+              <span class="militar-tag-clasif">★ CONTROL NKVD ★</span>
+            </div>
+            <div class="militar-marco-pantalla">
+              <iframe src="https://www.youtube.com/embed/K8w3m_p3h6k" title="El Belomorkanal" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="militar-caja-cuerpo">
+              <span class="militar-fecha">1931 – 1933 // BELBALTLAG</span>
+              <h3 class="militar-titulo">Obras del Belomorkanal</h3>
+              <p class="militar-desc">Canal de 227 km excavado a mano por presos políticos bajo la doctrina de la 'reforja' penal.</p>
+              <div class="militar-caja-pie">
+                <span>FORMATO: 35 MM</span>
+                <span>FONDO: NKVD-88</span>
               </div>
             </div>
-          </div>
+          </article>
+
+          <!-- Cuadro 4: Colectivización -->
+          <article class="caja-militar-video">
+            <div class="militar-caja-header">
+              <span class="militar-tag-codigo">CINTA MILITAR 04 // KOLJÓS</span>
+              <span class="militar-tag-clasif">★ COMISARIADO AGRÍCOLA ★</span>
+            </div>
+            <div class="militar-marco-pantalla">
+              <iframe src="https://www.youtube.com/embed/v9qC0Gq1r2k" title="Colectivización y Requisas" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="militar-caja-cuerpo">
+              <span class="militar-fecha">1929 – 1932 // CAMPO</span>
+              <h3 class="militar-titulo">Campaña de Colectivización</h3>
+              <p class="militar-desc">Requisas estatales forzadas de cereal y desmantelamiento de la propiedad agraria tradicional.</p>
+              <div class="militar-caja-pie">
+                <span>FORMATO: 35 MM</span>
+                <span>FONDO: GOSPLÁN-07</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cuadro 5: Juicios de Moscú -->
+          <article class="caja-militar-video">
+            <div class="militar-caja-header">
+              <span class="militar-tag-codigo">CINTA MILITAR 05 // PURGAS</span>
+              <span class="militar-tag-clasif">★ TRIBUNAL MILITAR ★</span>
+            </div>
+            <div class="militar-marco-pantalla">
+              <iframe src="https://www.youtube.com/embed/1Jgq2Z_8HqE" title="Los Juicios de Moscú" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="militar-caja-cuerpo">
+              <span class="militar-fecha">1936 – 1938 // EL GRAN TERROR</span>
+              <h3 class="militar-titulo">Los Juicios de Moscú</h3>
+              <p class="militar-desc">Confesiones públicas forzadas a antiguos líderes del partido y purgas en el mando militar soviético.</p>
+              <div class="militar-caja-pie">
+                <span>FORMATO: 35 MM</span>
+                <span>FONDO: GARF-54</span>
+              </div>
+            </div>
+          </article>
+
         </div>
       </section>
 
@@ -545,20 +415,17 @@
     </div>
   </div>
 
-  <!-- Librerías Externas vía CDN -->
+  <!-- Librerías Externas-->
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Módulos JavaScript del Proyecto -->
   <script src="js/dossier-modal.js" defer></script>
   <script src="js/charts.js" defer></script>
-  <script src="js/gallery.js" defer></script>
-  <script src="js/video-player.js" defer></script>
   <script src="js/network.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>

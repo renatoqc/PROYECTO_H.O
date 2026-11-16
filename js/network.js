@@ -197,30 +197,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // Conexiones dirigidas con etiquetas históricas claras y horizontales
+  // Conexiones dirigidas con curvaturas específicas para evitar solapamientos
   const conexionesRaw = [
-    { from: 'c1', to: 'p1', label: 'Impulsa' },
-    { from: 'c2', to: 'p1', label: 'Justifica urgencia' },
-    { from: 'c3', to: 'a1', label: 'Subordina' },
-    { from: 'a1', to: 'p1', label: 'Fija metas' },
-    { from: 'a1', to: 'p2', label: 'Ordena' },
-    { from: 'a1', to: 'p3', label: 'Instiga' },
-    { from: 'p2', to: 'a3', label: 'Expropia' },
-    { from: 'a3', to: 'p4', label: 'Deportados' },
-    { from: 'p2', to: 'r1', label: 'Desencadena' },
-    { from: 'a2', to: 'p3', label: 'Ejecuta arrestos' },
-    { from: 'a2', to: 'p4', label: 'Custodia' },
-    { from: 'p1', to: 'a4', label: 'Exige récords' },
-    { from: 'p4', to: 'p1', label: 'Aporta trabajo' },
-    { from: 'p1', to: 'r2', label: 'Engendra' },
-    { from: 'p3', to: 'r3', label: 'Siembra pánico' }
+    { from: 'c1', to: 'p1', label: 'Impulsa', smooth: { type: 'continuous', roundness: 0.1 } },
+    { from: 'c2', to: 'p1', label: 'Justifica urgencia', smooth: { type: 'continuous', roundness: 0.1 } },
+    { from: 'c3', to: 'a1', label: 'Subordina', smooth: { type: 'continuous', roundness: 0.1 } },
+    { from: 'a1', to: 'p1', label: 'Fija metas', smooth: { type: 'curvedCCW', roundness: 0.15 } },
+    { from: 'a1', to: 'p2', label: 'Ordena', smooth: { type: 'curvedCCW', roundness: 0.35 } },
+    { from: 'a1', to: 'p3', label: 'Instiga', smooth: { type: 'curvedCW', roundness: 0.2 } },
+    { from: 'p2', to: 'a3', label: 'Expropia', smooth: { type: 'curvedCW', roundness: 0.2 } },
+    { from: 'a3', to: 'p4', label: 'Deportados', smooth: { type: 'curvedCW', roundness: 0.35 } },
+    { from: 'p2', to: 'r1', label: 'Desencadena', smooth: { type: 'continuous', roundness: 0.1 } },
+    { from: 'a2', to: 'p3', label: 'Ejecuta arrestos', smooth: { type: 'continuous', roundness: 0.1 } },
+    { from: 'a2', to: 'p4', label: 'Custodia', smooth: { type: 'curvedCCW', roundness: 0.2 } },
+    { from: 'p1', to: 'a4', label: 'Exige récords', smooth: { type: 'curvedCCW', roundness: 0.15 } },
+    { from: 'p4', to: 'p1', label: 'Aporta trabajo', smooth: { type: 'curvedCW', roundness: 0.25 } },
+    { from: 'p1', to: 'r2', label: 'Engendra', smooth: { type: 'continuous', roundness: 0.1 } },
+    { from: 'p3', to: 'r3', label: 'Siembra pánico', smooth: { type: 'continuous', roundness: 0.1 } }
   ];
 
   // Formato visual general para nodos
   const nodosFormateados = nodosRaw.map(n => ({
     ...n,
     shape: 'box',
-    margin: 11,
+    margin: 7,
     borderWidth: 2.5,
     font: {
       face: 'Courier Prime, monospace',
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
       strokeColor: '#FAF6EE',
       color: '#151D19'
     },
-    smooth: { type: 'continuous', roundness: 0.15 }
+    smooth: e.smooth || { type: 'continuous', roundness: 0.15 }
   }));
 
   // DataSets de Vis.js

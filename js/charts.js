@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('chart-gosplan');
   if (!canvas || typeof Chart === 'undefined') return;
 
-  // Datos verificados de los archivos del Gosplán (Fuentes: Davies, Wheatcroft & Harrison)
+  // Datos verificados de los archivos del Gosplán (Fuentes: Davies & Wheatcroft)
   const anios = ['1928', '1930', '1932', '1934', '1936', '1938', '1940'];
   const produccionAcero = [4.3, 5.8, 5.9, 9.6, 16.4, 18.1, 18.3]; // Millones de toneladas
   const produccionCarbon = [35.5, 47.8, 64.4, 93.6, 126.0, 132.9, 165.9]; // Millones de toneladas

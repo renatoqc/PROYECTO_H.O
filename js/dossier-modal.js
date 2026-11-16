@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fecha: '1929 – 1936',
       titulo: 'Magnitogorsk: La Forja del Socialismo',
       subtitulo: 'Construcción del mayor complejo metalúrgico del mundo en los Urales',
-      contexto: 'Construida al pie del monte Magnítnaya con asesoría técnica estadounidense, Magnitogorsk fue levantada en tiempo récord por voluntarios del Komsomol y miles de deportados forzados a temperaturas de -40 °C. Hacia 1939 abastecía un tercio del acero y los blindajes blindados de tanques soviéticos.',
+      contexto: 'Construida al pie del monte Magnítnaya con asesoría técnica estadounidense, Magnitogorsk fue levantada en tiempo récord por voluntarios del Komsomol y miles de deportados forzados a temperaturas de -40 °C. Hacia 1939 abastecía un tercio del acero y los blindajes de tanques soviéticos.',
       personajes: [
         { nombre: 'Aleksandr Zavenyaguin', rol: 'Director general del Combinado Metalúrgico (MMK).' },
         { nombre: 'John Scott', rol: 'Soldador estadounidense que documentó la epopeya fabril y el terror diario.' },

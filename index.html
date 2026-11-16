@@ -26,6 +26,7 @@
         <li><a href="#inicio" class="nav-link-archivo"><i data-lucide="folder"></i> Carátula</a></li>
         <li><a href="#contexto" class="nav-link-archivo"><i data-lucide="file-text"></i> Contexto</a></li>
         <li><a href="#estadisticas" class="nav-link-archivo"><i data-lucide="bar-chart-2"></i> Gosplán</a></li>
+        <li><a href="#balanza-transformacion" class="nav-link-archivo"><i data-lucide="scale"></i> Balanza</a></li>
         <li><a href="#proyector-cine" class="nav-link-archivo"><i data-lucide="film"></i> Filmoteca</a></li>
         <li><a href="#relaciones" class="nav-link-archivo"><i data-lucide="share-2"></i> Red Causal</a></li>
       </ul>
@@ -161,6 +162,197 @@
             <strong>Colectivización (1928–1940):</strong> Del 1.7% al 96.9% de tierras bajo control estatal para financiar la compra de maquinaria pesada.
           </div>
         </div>
+      </section>
+
+      <!-- ==========================================================
+           SECCIÓN 5: BALANZA DE LA TRANSFORMACIÓN (1928–1941)
+           ========================================================== -->
+      <section class="seccion-balanza-archivo" id="balanza-transformacion" aria-labelledby="titulo-balanza-id">
+        
+        <!-- Cabecera de la sección estilo expediente -->
+        <header class="cabecera-red">
+          <span class="informe-folio">DOSSIER COMPARATIVO // GOSPLÁN VS. NKVD [REF. BAL-1928-1941]</span>
+          <h2 class="informe-titulo" id="titulo-balanza-id">Balanza de la Transformación: Crecimiento y Costo Humano</h2>
+          <p class="instruccion-red">
+            ✦ Desplaza la regla cronológica o selecciona un año clave para cotejar los índices de industrialización forzada frente al registro de represión estatal.
+          </p>
+        </header>
+
+        <!-- 1. Control Temporal Interactivo (Regla Mecanografiada) -->
+        <div class="balanza-control-temporal" role="region" aria-label="Control cronológico">
+          <div class="regla-cabecera">
+            <span class="regla-etiqueta"><i data-lucide="calendar"></i> CRONOGRAMA DE MEDICIÓN:</span>
+            <span class="regla-anio-activo" id="balanza-anio-display">AÑO ACTIVO: 1928 [INICIO DEL GRAN VIRAJE]</span>
+          </div>
+
+          <!-- Deslizador tipo regla militar -->
+          <div class="regla-deslizador-wrapper">
+            <input 
+              type="range" 
+              id="balanza-slider" 
+              class="regla-slider" 
+              min="0" 
+              max="3" 
+              step="1" 
+              value="0" 
+              aria-label="Seleccionar año histórico entre 1928 y 1941"
+            >
+            <div class="regla-marcas-escala" aria-hidden="true">
+              <span>1928</span><span>1932</span><span>1937</span><span>1941</span>
+            </div>
+          </div>
+
+          <!-- Botones de años clave -->
+          <div class="regla-botones-anios" role="group" aria-label="Años clave">
+            <button type="button" class="btn-anio-marcador activo" data-index="0" aria-pressed="true">
+              <span class="marcador-punto">★</span> 1928
+            </button>
+            <button type="button" class="btn-anio-marcador" data-index="1" aria-pressed="false">
+              <span class="marcador-punto">★</span> 1932
+            </button>
+            <button type="button" class="btn-anio-marcador" data-index="2" aria-pressed="false">
+              <span class="marcador-punto">★</span> 1937
+            </button>
+            <button type="button" class="btn-anio-marcador" data-index="3" aria-pressed="false">
+              <span class="marcador-punto">★</span> 1941
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Pantalla Dividida: Dos Carpetas Abiertas Lado a Lado -->
+        <div class="balanza-carpetas-grid">
+
+          <!-- CARPETA IZQUIERDA: GOSPLÁN (Azul Archivo #1F4E79) -->
+          <article class="carpeta-balance carpeta-gosplan" aria-labelledby="tit-gosplan">
+            <div class="carpeta-balance-pestana">
+              <span>GOSPLÁN // COMISARIADO DEL PLAN ESTATAL</span>
+              <span class="sello-tecnico-azul">DICTAMEN TÉCNICO</span>
+            </div>
+
+            <header class="carpeta-balance-cabecera">
+              <div class="carpeta-icono-marco azul">
+                <i data-lucide="factory"></i>
+              </div>
+              <div>
+                <h3 class="carpeta-balance-titulo" id="tit-gosplan">Desarrollo e Infraestructura Industrial</h3>
+                <p class="carpeta-balance-sub">Vías de acumulación, siderurgia pesada y producción estratégica</p>
+              </div>
+            </header>
+
+            <div class="carpeta-balance-cuerpo">
+              <!-- Métrica 1: Acero -->
+              <div class="metrica-bloque">
+                <div class="metrica-info">
+                  <span class="metrica-nombre"><i data-lucide="wrench"></i> Producción de Acero</span>
+                  <span class="metrica-cifra" id="val-acero">4.3 MT</span>
+                </div>
+                <div class="barra-progreso-marco" role="progressbar" aria-valuenow="21.5" aria-valuemin="0" aria-valuemax="100">
+                  <div class="barra-progreso-fill fill-azul" id="bar-acero" style="width: 21.5%;"></div>
+                </div>
+                <span class="metrica-nota-pie" id="nota-acero">Capacidad siderúrgica previa a la colectivización</span>
+              </div>
+
+              <!-- Métrica 2: Carbón -->
+              <div class="metrica-bloque">
+                <div class="metrica-info">
+                  <span class="metrica-nombre"><i data-lucide="flame"></i> Extracción de Carbón</span>
+                  <span class="metrica-cifra" id="val-carbon">35.5 MT</span>
+                </div>
+                <div class="barra-progreso-marco" role="progressbar" aria-valuenow="19.7" aria-valuemin="0" aria-valuemax="100">
+                  <div class="barra-progreso-fill fill-azul" id="bar-carbon" style="width: 19.7%;"></div>
+                </div>
+                <span class="metrica-nota-pie" id="nota-carbon">Cuenca hullera del Donbás en reactivación</span>
+              </div>
+
+              <!-- Métrica 3: Hito Industrial / Urbanización -->
+              <div class="metrica-bloque hito-cualitativo">
+                <span class="metrica-nombre"><i data-lucide="award"></i> Hito Económico / Plan Quinquenal</span>
+                <div class="hito-caja-texto" id="txt-hito-industrial">
+                  Lanzamiento del 1° Plan Quinquenal: subordinación económica para liquidar el mercado de la NEP y priorizar acero y energía.
+                </div>
+              </div>
+            </div>
+
+            <footer class="carpeta-balance-pie">
+              <span>FONDO: GARF-F.4372 // COMISIÓN ESTATAL DE PLANIFICACIÓN</span>
+              <span class="sello-aprobado-azul">AUDITADO</span>
+            </footer>
+          </article>
+
+          <!-- CARPETA DERECHA: NKVD (Rojo Clasificación #A52D27) -->
+          <article class="carpeta-balance carpeta-nkvd" aria-labelledby="tit-nkvd">
+            <div class="carpeta-balance-pestana roja">
+              <span>NKVD // DIRECCIÓN GENERAL DE CAMPOS</span>
+              <span class="sello-tecnico-rojo">★ CONFIDENCIAL ★</span>
+            </div>
+
+            <header class="carpeta-balance-cabecera">
+              <div class="carpeta-icono-marco rojo">
+                <i data-lucide="shield-alert"></i>
+              </div>
+              <div>
+                <h3 class="carpeta-balance-titulo" id="tit-nkvd">Registro de Represión y Costo Humano</h3>
+                <p class="carpeta-balance-sub">Administración penitenciaria, colectivización y coerción política</p>
+              </div>
+            </header>
+
+            <div class="carpeta-balance-cuerpo">
+              <!-- Métrica 1: Población GULAG -->
+              <div class="metrica-bloque">
+                <div class="metrica-info">
+                  <span class="metrica-nombre"><i data-lucide="lock"></i> Población en Campos (GULAG)</span>
+                  <span class="metrica-cifra cifra-roja" id="val-gulag">~30,000</span>
+                </div>
+                <div class="barra-progreso-marco" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100">
+                  <div class="barra-progreso-fill fill-rojo" id="bar-gulag" style="width: 3.5%;"></div>
+                </div>
+                <span class="metrica-nota-pie" id="nota-gulag">Presos recluidos en los campos Solovkí (SLON)</span>
+              </div>
+
+              <!-- Métrica 2: Colectivización Forzada -->
+              <div class="metrica-bloque">
+                <div class="metrica-info">
+                  <span class="metrica-nombre"><i data-lucide="users"></i> Granjas Colectivizadas (% Tierra)</span>
+                  <span class="metrica-cifra cifra-roja" id="val-colectiv">1.7%</span>
+                </div>
+                <div class="barra-progreso-marco" role="progressbar" aria-valuenow="1.7" aria-valuemin="0" aria-valuemax="100">
+                  <div class="barra-progreso-fill fill-rojo" id="bar-colectiv" style="width: 1.7%;"></div>
+                </div>
+                <span class="metrica-nota-pie" id="nota-colectiv">Tierras agrícolas bajo control estatal</span>
+              </div>
+
+              <!-- Métrica 3: Represión Política / Registro de Víctimas -->
+              <div class="metrica-bloque hito-cualitativo">
+                <span class="metrica-nombre"><i data-lucide="alert-triangle"></i> Operaciones y Víctimas Documentadas</span>
+                <div class="hito-caja-texto alerta-represion" id="txt-represion">
+                  Liquidación de la pequeña empresa urbana y primeras requisas forzadas de cereal a los campesinos en los Urales.
+                </div>
+              </div>
+            </div>
+
+            <footer class="carpeta-balance-pie">
+              <span>FONDO: RGASPI-M.9401 // ARCHIVO ESTATAL DEL MINISTERIO DEL INTERIOR</span>
+              <span class="sello-aprobado-rojo">ORDEN 00447</span>
+            </footer>
+          </article>
+
+        </div>
+
+        <!-- 3. Ficha Inferior de Sustento Documental -->
+        <aside class="balanza-ficha-fuente" aria-labelledby="tit-sustento">
+          <div class="ficha-fuente-header">
+            <span class="ficha-fuente-codigo" id="tit-sustento">
+              <i data-lucide="file-check-2"></i> SUSTENTO DOCUMENTAL Y FUENTES PRIMARIAS // AÑO: <span id="fuente-anio-folio">1928</span>
+            </span>
+            <span class="ficha-fuente-clasif">DESCLASIFICADO</span>
+          </div>
+          <div class="ficha-fuente-cuerpo">
+            <p id="fuente-descripcion" class="ficha-fuente-texto">
+              <strong>Fuentes archivísticas del registro (1928):</strong> R. W. Davies & Stephen Wheatcroft (<em>The Industrialisation of Soviet Russia</em>); registros desclasificados del Politburó sobre el fin de la NEP y primeros censos de prisioneros en Solovkí (GARF f. 9414).
+            </p>
+          </div>
+        </aside>
+
       </section>
 
       <!-- Sección: Filmoteca y Sala de Proyecciones Históricas -->
@@ -426,6 +618,7 @@
   <!-- Módulos JavaScript del Proyecto -->
   <script src="js/dossier-modal.js" defer></script>
   <script src="js/charts.js" defer></script>
+  <script src="js/balanza.js" defer></script>
   <script src="js/network.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>

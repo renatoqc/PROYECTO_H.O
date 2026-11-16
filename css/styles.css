@@ -1658,3 +1658,347 @@ body {
   }
 }
 
+/* ==========================================================
+   SECCIÓN 6: CONCLUSIÓN FUNDAMENTADA Y FUENTES ACADÉMICAS
+   ========================================================== */
+.seccion-conclusion-archivo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* 1. Bloque: Dictamen Final de Resolución */
+.expediente-resolucion-final {
+  position: relative;
+  background-color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-borde-suave);
+  border-top: 5px solid var(--color-verde-oscuro);
+  box-shadow: var(--sombra-hoja);
+  padding: 3rem 2.8rem 2.5rem;
+  border-radius: 2px;
+}
+
+/* Sello rojo inclinado en esquina */
+.sello-expediente-cerrado {
+  position: absolute;
+  top: 1.8rem;
+  right: 2rem;
+  color: var(--color-sello-rojo);
+  border: 3px dashed var(--color-sello-rojo);
+  font-family: var(--fuente-mecanografia);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: rotate(7deg);
+  user-select: none;
+  background-color: rgba(250, 246, 238, 0.85);
+  box-shadow: 0 2px 6px rgba(165, 45, 39, 0.15);
+}
+
+.resolucion-cabecera {
+  margin-bottom: 2rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 2px solid var(--color-tinta-maquina);
+}
+
+.resolucion-pregunta-referencia {
+  margin-top: 1.2rem;
+  padding: 1rem 1.4rem;
+  background-color: var(--color-papel-fondo);
+  border-left: 3px solid var(--color-verde-militar);
+  border-top: 1px dashed var(--color-borde-suave);
+  border-right: 1px dashed var(--color-borde-suave);
+  border-bottom: 1px dashed var(--color-borde-suave);
+}
+
+.etiqueta-dictamen {
+  display: block;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-verde-militar);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.pregunta-dictamen {
+  font-family: var(--fuente-lectura);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: var(--color-tinta-maquina);
+  margin: 0;
+}
+
+.resolucion-cuerpo-texto {
+  font-family: var(--fuente-lectura);
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--color-tinta-maquina);
+  text-align: justify;
+}
+
+.resolucion-cuerpo-texto p {
+  margin-bottom: 1.3rem;
+  text-indent: 1.8rem;
+}
+
+.resolucion-cuerpo-texto p::first-letter {
+  font-family: var(--fuente-mecanografia);
+  font-weight: 700;
+  font-size: 1.4em;
+  color: var(--color-verde-oscuro);
+}
+
+.resolucion-sentencia-final {
+  background-color: var(--color-papel-envejecido);
+  border-left: 4px solid var(--color-sello-rojo);
+  padding: 1.1rem 1.5rem;
+  margin-top: 1.8rem !important;
+  text-indent: 0 !important;
+  font-size: 1.05rem;
+}
+
+/* Pie de firma mecanografiado */
+.resolucion-firma-bloque {
+  margin-top: 2.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px dashed var(--color-borde-suave);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.firma-linea {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.firma-organismo {
+  font-family: var(--fuente-mecanografia);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-tinta-maquina);
+  letter-spacing: 0.05em;
+}
+
+.firma-lugar-fecha {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  color: var(--color-tinta-suave);
+}
+
+.sello-lacre-militar {
+  color: var(--color-verde-militar);
+  border: 1px solid var(--color-verde-militar);
+  padding: 0.3rem 0.8rem;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* 2. Bloque: Inventario Bibliográfico y Documental */
+.inventario-bibliografico {
+  background-color: var(--color-papel-tarjeta);
+  border: 1px solid var(--color-borde-suave);
+  box-shadow: var(--sombra-hoja);
+  padding: 2.8rem 2.5rem;
+  border-radius: 2px;
+}
+
+.inventario-cabecera {
+  margin-bottom: 2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--color-borde-suave);
+}
+
+.inventario-titulo {
+  font-family: var(--fuente-mecanografia);
+  font-size: 1.4rem;
+  color: var(--color-tinta-maquina);
+  margin: 0.4rem 0 0.5rem;
+}
+
+.inventario-subtexto {
+  font-family: var(--fuente-lectura);
+  font-size: 0.95rem;
+  color: var(--color-tinta-suave);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.inventario-grid-columnas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.2rem;
+}
+
+.inventario-seccion {
+  background-color: var(--color-papel-fondo);
+  border: 1px solid var(--color-borde-suave);
+  padding: 1.5rem;
+  border-radius: 2px;
+}
+
+.inventario-seccion-titulo {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-verde-militar);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--color-verde-militar);
+  letter-spacing: 0.04em;
+}
+
+.inventario-seccion-titulo i,
+.inventario-seccion-titulo svg {
+  width: 17px;
+  height: 17px;
+}
+
+.lista-fichas-archivo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.ficha-ref-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-family: var(--fuente-lectura);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--color-tinta-maquina);
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dotted var(--color-borde-suave);
+}
+
+.ficha-ref-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ref-folio {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-verde-militar);
+  flex-shrink: 0;
+}
+
+.ficha-ref-item.primario .ref-folio {
+  color: var(--color-sello-rojo);
+}
+
+.ref-contenido {
+  flex-grow: 1;
+}
+
+/* 3. Pie de Página Académico (Footer) */
+.pie-pagina-archivo {
+  background-color: var(--color-verde-oscuro);
+  color: var(--color-papel-envejecido);
+  padding: 1.8rem 2.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  border: 1px solid var(--color-tinta-maquina);
+  box-shadow: var(--sombra-hoja);
+  border-radius: 2px;
+}
+
+.pie-info-institucional {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pie-proyecto-titulo {
+  font-family: var(--fuente-mecanografia);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+}
+
+.pie-proyecto-sub {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.75rem;
+  color: var(--color-papel-envejecido);
+  opacity: 0.85;
+}
+
+.btn-volver-arriba {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--color-verde-militar);
+  color: var(--color-papel-tarjeta);
+  border: 1px solid #3E4F41;
+  padding: 0.6rem 1rem;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: var(--transicion-suave);
+  border-radius: 2px;
+}
+
+.btn-volver-arriba:hover {
+  background-color: var(--color-sello-rojo);
+  color: #FFFFFF;
+  border-color: var(--color-sello-rojo);
+}
+
+.btn-volver-arriba i,
+.btn-volver-arriba svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN (Conclusión y Fuentes)
+   ========================================================== */
+@media (max-width: 900px) {
+  .inventario-grid-columnas {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .expediente-resolucion-final {
+    padding: 2.5rem 1.8rem 2rem;
+  }
+
+  .sello-expediente-cerrado {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    transform: none;
+  }
+
+  .pie-pagina-archivo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

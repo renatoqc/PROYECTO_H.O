@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
       '.seccion-chart-gosplan',
       '.seccion-balanza-archivo',
       '.seccion-proyector-video',
-      '.seccion-red-historica'
+      '.seccion-red-historica',
+      '.seccion-conclusion-archivo'
     ];
 
     secciones.forEach(sec => {

@@ -1,5 +1,5 @@
 /**
- * js/balanza.js
+ 
  * Balanza Histórica de la Transformación: Gosplán vs. NKVD (1928–1941)
  * Actualización dinámica de métricas, barras animadas y sustento documental.
  */

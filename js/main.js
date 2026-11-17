@@ -6,19 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // Animaciones de Entrada con GSAP y ScrollTrigger
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Registrar ScrollTrigger si está disponible
   if (!prefersReducedMotion && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
-
-    // Animación de entrada de la carátula inicial
-    gsap.from('.carpeta-expediente', {
-      opacity: 0,
-      y: 40,
-      duration: 1,
-      ease: 'power3.out'
-    });
 
     // Revelado progresivo al scrollear entre secciones
     const secciones = [
@@ -47,7 +39,93 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Interacción con el Sello "DOCUMENTO DESCLASIFICADO" usando SweetAlert2
+  // Desbloqueo y revelado progresivo tras presionar "INGRESAR AL ARCHIVO"
+  function desbloquearYRevelarArchivo() {
+    document.body.classList.remove('archivo-bloqueado');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    if (!prefersReducedMotion && typeof gsap !== 'undefined') {
+      const tl = gsap.timeline();
+
+      // 1. Barra de navegación superior desciende suavemente
+      tl.fromTo('.barra-nav-archivo', 
+        { y: -50, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out' }
+      )
+      // 2. Carpeta carátula aparece con elevación y escala
+      .fromTo('.carpeta-expediente', 
+        { y: 60, opacity: 0, scale: 0.97 }, 
+        { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: 'power3.out' }, 
+        '-=0.2'
+      )
+      // 3. El sello rojo se estampa con impacto
+      .fromTo('.sello-desclasificado', 
+        { scale: 1.6, opacity: 0, rotation: 18 }, 
+        { scale: 1, opacity: 1, rotation: 4, duration: 0.5, ease: 'back.out(2)' }, 
+        '-=0.25'
+      )
+      // 4. El memorándum de discusión aparece
+      .fromTo('.memo-oficial', 
+        { y: 30, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out' }, 
+        '-=0.2'
+      )
+      // 5. El primer bloque de contexto se revela progresivamente
+      .fromTo('#contexto', 
+        { y: 35, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.75, ease: 'power2.out' }, 
+        '-=0.2'
+      );
+
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    }
+  }
+
+  // Modal Inicial en Pantalla Completa: Autorización de Acceso
+  function lanzarModalAutorizacionInicial() {
+    if (typeof Swal !== 'undefined') {
+      Swal.fire({
+        title: 'AUTORIZACIÓN DE ACCESO',
+        html: `
+          <div style="font-family: 'Courier Prime', monospace; text-align: left; font-size: 0.95rem; line-height: 1.6; color: #151D19;">
+            <p style="margin-bottom: 0.8rem;">
+              <strong>REGISTRO:</strong> EXP-URSS-1928-1953<br>
+              <strong>ORGANISMO:</strong> ARCHIVO CENTRAL DE INVESTIGACIÓN HISTÓRICA<br>
+              <strong>ESTADO:</strong> <span style="color: #A52D27; font-weight: bold;">DESCLASIFICACIÓN PARCIAL CONCEDIDA</span>
+            </p>
+            <p style="border-top: 1px dashed #BFB8A5; padding-top: 0.6rem; color: #424B44;">
+              Los documentos contenidos en este dossier historiográfico integran fuentes desclasificadas del GARF, RGASPI y testimonios del período de modernización y terror estalinista.
+            </p>
+          </div>
+        `,
+        icon: 'info',
+        confirmButtonText: 'INGRESAR AL ARCHIVO',
+        confirmButtonColor: '#28352A',
+        background: '#FAF6EE',
+        backdrop: 'rgba(17, 24, 20, 0.96)',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: true,
+        customClass: {
+          popup: 'swal-archivo-custom',
+          backdrop: 'swal-backdrop-militar'
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          desbloquearYRevelarArchivo();
+        }
+      });
+    } else {
+      desbloquearYRevelarArchivo();
+    }
+  }
+
+  // Ejecutar autorización inicial al abrir la página
+  lanzarModalAutorizacionInicial();
+
+  // Interacción posterior al pulsar el Sello "DOCUMENTO DESCLASIFICADO"
   const sello = document.querySelector('.sello-desclasificado');
   if (sello) {
     sello.addEventListener('click', () => {
@@ -61,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Alerta estilizada con SweetAlert2
       if (typeof Swal !== 'undefined') {
         Swal.fire({
           title: 'AUTORIZACIÓN DE ACCESO',
@@ -78,9 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           `,
           icon: 'info',
-          confirmButtonText: 'INGRESAR AL ARCHIVO',
+          confirmButtonText: 'CONTINUAR LECTURA',
           confirmButtonColor: '#28352A',
           background: '#FAF6EE',
+          allowOutsideClick: true,
           customClass: {
             popup: 'swal-archivo-custom'
           }

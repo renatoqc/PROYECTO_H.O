@@ -195,30 +195,71 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Detección automática del entorno de reproducción de video
+  if (window.location.protocol.startsWith('http')) {
+    // Si corre en un servidor web (GitHub Pages o localhost), activar YouTube
+    window.cambiarFuenteVideo('yt');
+  } else {
+    // Si corre en disco duro local (file:///), activar archivo local MP4 (evita Error 153)
+    window.cambiarFuenteVideo('local');
+  }
+
 });
 
 // Alternar entre fuente YouTube y Archivo Local MP4 en la Filmoteca
-window.cambiarFuenteVideo = function(fuente) {
+window.cambiarFuenteVideo = function(fuente, forzarYT = false) {
   const iframeYT = document.getElementById('iframe-youtube-cine');
   const videoLocal = document.getElementById('video-local-cine');
   const btnYT = document.getElementById('btn-fuente-yt');
   const btnLocal = document.getElementById('btn-fuente-local');
+  const avisoLocal = document.getElementById('aviso-protocolo-local');
+  const bloqueoYT = document.getElementById('pantalla-bloqueo-yt-local');
 
   if (!iframeYT || !videoLocal) return;
 
+  const esProtocoloLocal = window.location.protocol === 'file:';
+
   if (fuente === 'yt') {
-    iframeYT.style.display = 'block';
-    videoLocal.style.display = 'none';
-    videoLocal.pause();
     if (btnYT) btnYT.classList.add('activo');
     if (btnLocal) btnLocal.classList.remove('activo');
+    videoLocal.style.display = 'none';
+    videoLocal.pause();
+
+    if (esProtocoloLocal && !forzarYT) {
+      // En file:/// Google YouTube bloquea con Error 153. Mostramos aviso asistido
+      iframeYT.style.display = 'none';
+      if (bloqueoYT) {
+        bloqueoYT.style.display = 'flex';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      }
+      if (avisoLocal) avisoLocal.style.display = 'flex';
+    } else {
+      // En servidor web o si se fuerza manualmente
+      if (bloqueoYT) bloqueoYT.style.display = 'none';
+      if (avisoLocal) avisoLocal.style.display = 'none';
+
+      // Cargar iframe src desde data-src si aún no está cargado
+      const dataSrc = iframeYT.getAttribute('data-src');
+      if (dataSrc && (!iframeYT.src || iframeYT.src === 'about:blank' || iframeYT.src === window.location.href)) {
+        iframeYT.src = dataSrc;
+      }
+      iframeYT.style.display = 'block';
+    }
   } else {
-    iframeYT.style.display = 'none';
-    videoLocal.style.display = 'block';
+    // Modo Local MP4
     if (btnLocal) btnLocal.classList.add('activo');
     if (btnYT) btnYT.classList.remove('activo');
-    videoLocal.play().catch(() => {});
+    if (bloqueoYT) bloqueoYT.style.display = 'none';
+    iframeYT.style.display = 'none';
+    videoLocal.style.display = 'block';
+    if (avisoLocal && esProtocoloLocal) {
+      avisoLocal.style.display = 'none';
+    }
   }
+};
+
+window.forzarCargaIframeYT = function() {
+  window.cambiarFuenteVideo('yt', true);
 };
 
 // Mensaje flotante de respaldo si no está SweetAlert2

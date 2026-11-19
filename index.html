@@ -382,32 +382,66 @@
 
             <!-- Selector de fuente de video: YouTube Online vs Archivo Local -->
             <div class="selector-fuente-cine" role="tablist" aria-label="Fuente de reproducción">
-              <button type="button" class="btn-fuente-cine activo" id="btn-fuente-yt" onclick="cambiarFuenteVideo('yt')">
-                <i data-lucide="play-circle"></i> Transmisión YouTube
+              <button type="button" class="btn-fuente-cine activo" id="btn-fuente-local" onclick="cambiarFuenteVideo('local')">
+                <i data-lucide="hard-drive"></i> Archivo Local (Tu PC - MP4)
               </button>
-              <button type="button" class="btn-fuente-cine" id="btn-fuente-local" onclick="cambiarFuenteVideo('local')">
-                <i data-lucide="hard-drive"></i> Archivo Local (MP4)
+              <button type="button" class="btn-fuente-cine" id="btn-fuente-yt" onclick="cambiarFuenteVideo('yt')">
+                <i data-lucide="play-circle"></i> Transmisión YouTube (Web)
               </button>
+            </div>
+
+            <!-- Aviso informativo si se abre en modo local file:/// -->
+            <div id="aviso-protocolo-local" class="aviso-cine-militar" style="display: none;">
+              <i data-lucide="info"></i>
+              <span>
+                <strong>Modo Local Detectado:</strong> Al abrir el archivo con doble clic (<code>file:///</code>), Google bloquea los reproductores embebidos de YouTube (Error 153). El reproductor ha sido configurado en <strong>"Archivo Local (Tu PC - MP4)"</strong> para ver la ponencia de 13:44 min sin errores en tu computadora. Al publicar en internet (GitHub Pages), la transmisión de YouTube funcionará automáticamente.
+              </span>
             </div>
 
             <!-- Pantalla de reproducción de video -->
             <div class="militar-marco-pantalla militar-marco-grande">
-              <!-- Reproductor Oficial YouTube con Token de Inserción -->
+              <!-- Reproductor Local MP4 (por defecto en local: sin Error 153) -->
+              <video id="video-local-cine" class="video-reproductor-elemento" controls preload="metadata">
+                <source src="video/exposicion_grupal.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video HTML5.
+              </video>
+
+              <!-- Reproductor Oficial YouTube (se activa en web o si el usuario lo solicita) -->
               <iframe 
                 id="iframe-youtube-cine"
-                src="https://www.youtube.com/embed/Rfv92AL9IOc?si=AnAP5umbQtju0o3u" 
+                data-src="https://www.youtube.com/embed/Rfv92AL9IOc?si=AnAP5umbQtju0o3u" 
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerpolicy="strict-origin-when-cross-origin" 
-                allowfullscreen>
+                allowfullscreen
+                style="display: none;">
               </iframe>
 
-              <!-- Reproductor Local MP4 (para ejecución local inmediata) -->
-              <video id="video-local-cine" class="video-reproductor-elemento" controls preload="metadata" style="display: none;">
-                <source src="video/exposicion_grupal.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video HTML5.
-              </video>
+              <!-- Pantalla de aviso estilizada si se pulsa YouTube en protocolo local file:/// -->
+              <div id="pantalla-bloqueo-yt-local" class="pantalla-bloqueo-yt" style="display: none;">
+                <div class="pantalla-bloqueo-contenido">
+                  <div class="pantalla-bloqueo-icono">
+                    <i data-lucide="shield-alert"></i>
+                  </div>
+                  <span class="pantalla-bloqueo-tag">POLÍTICA DE SEGURIDAD GOOGLE (ERROR 153)</span>
+                  <h4 class="pantalla-bloqueo-titulo">Reproducción de YouTube Restringida en Archivo Local</h4>
+                  <p class="pantalla-bloqueo-desc">
+                    YouTube exige un protocolo web (<code>http://</code> o <code>https://</code>) para transmitir dentro de un marco. Al abrir el archivo directamente desde tu computadora (<code>file:///</code>), Google bloquea la reproducción mostrando el <strong>Error 153</strong>.
+                  </p>
+                  <div class="pantalla-bloqueo-acciones">
+                    <button type="button" class="btn-cine-accion-principal" onclick="cambiarFuenteVideo('local')">
+                      <i data-lucide="hard-drive"></i> Reproducir Archivo Local MP4 (Sin Errores)
+                    </button>
+                    <a href="https://youtu.be/Rfv92AL9IOc" target="_blank" rel="noopener noreferrer" class="btn-cine-accion-yt">
+                      <i data-lucide="external-link"></i> Ver en YouTube Oficial ↗
+                    </a>
+                    <button type="button" class="btn-cine-accion-forzar" onclick="forzarCargaIframeYT()">
+                      Forzar intento de carga embebida
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="militar-caja-cuerpo">

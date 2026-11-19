@@ -1,0 +1,6 @@
+# Archivos multimedia de gran tamaño (GitHub no admite archivos > 100 MB)
+video/
+*.mp4
+*.mov
+*.avi
+*.mkv

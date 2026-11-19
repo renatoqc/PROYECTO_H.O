@@ -366,109 +366,67 @@
           </p>
         </header>
 
-        <!-- Cuadrícula Militar de 5 Cuadros de Video -->
-        <div class="grid-filmoteca-militar">
-
-          <!-- Cuadro 1: Magnitogorsk -->
-          <article class="caja-militar-video">
+        <!-- Sala de Proyección Principal: Video Grupal del Equipo -->
+        <div class="proyector-sala-principal">
+          <article class="caja-militar-video caja-militar-pantalla-grande">
             <div class="militar-caja-header">
-              <span class="militar-tag-codigo">CINTA MILITAR 01 // MMK</span>
-              <span class="militar-tag-clasif">★ ALTO SECRETO ★</span>
+              <span class="militar-tag-codigo">CINTA MAESTRA // EXP-PONENCIA-1953</span>
+              <span class="militar-tag-clasif">★ REGISTRO OFICIAL DEL COMITÉ ★</span>
             </div>
-            <div class="militar-marco-pantalla">
-              <iframe src="https://www.youtube.com/embed/5a3r7G-7k-c" title="La Forja de Magnitogorsk" allowfullscreen loading="lazy"></iframe>
+
+            <!-- Pantalla de reproducción de video -->
+            <div class="militar-marco-pantalla militar-marco-grande">
+              <video id="reproductor-exposicion" class="video-reproductor-elemento" controls preload="metadata">
+                <source src="video/exposicion_grupal.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video HTML5.
+              </video>
             </div>
+
             <div class="militar-caja-cuerpo">
-              <span class="militar-fecha">1929 – 1932 // SIDERURGIA</span>
-              <h3 class="militar-titulo">La Forja de Magnitogorsk</h3>
-              <p class="militar-desc">Construcción acelerada del complejo siderúrgico en los Urales a 40 grados bajo cero.</p>
+              <div class="militar-metadatos-fila">
+                <span class="militar-fecha">DURACIÓN: 13:44 MIN // RESOLUCIÓN: 1080P HD</span>
+                <span class="militar-clasif-badge">REGISTRO AUDIOVISUAL</span>
+              </div>
+              <h3 class="militar-titulo">El Precio del Acero: Modernización y Terror en la URSS Estalinista</h3>
+              <p class="militar-desc">
+                Exposición oral completa del equipo de investigación analizando la subordinación económica de la NEP, la colectivización agraria forzada, el desarrollo siderúrgico de los Planes Quinquenales y el costo humano del sistema concentracionario soviético.
+              </p>
+
+              <!-- Ficha de bloques temáticos de la ponencia -->
+              <div class="proyector-bloques-exposicion">
+                <div class="bloque-item-cine">
+                  <span class="bloque-num">01</span>
+                  <div class="bloque-info">
+                    <strong>Introducción y Pregunta Central:</strong> Memorándum de discusión historiográfica sobre el modelo de desarrollo soviético.
+                  </div>
+                </div>
+                <div class="bloque-item-cine">
+                  <span class="bloque-num">02</span>
+                  <div class="bloque-info">
+                    <strong>El Gran Viraje y Gosplán:</strong> Planificación centralizada, metas forzadas de acero, carbón y colectivización agraria.
+                  </div>
+                </div>
+                <div class="bloque-item-cine">
+                  <span class="bloque-num">03</span>
+                  <div class="bloque-info">
+                    <strong>Balanza y Costo Humano:</strong> Expansión fabril vs. represión estatal (GULAG, Holodomor y la Orden NKVD N° 00447).
+                  </div>
+                </div>
+                <div class="bloque-item-cine">
+                  <span class="bloque-num">04</span>
+                  <div class="bloque-info">
+                    <strong>Red Causal y Conclusiones:</strong> Relaciones sistémicas entre actores, causas y dictamen evaluativo final.
+                  </div>
+                </div>
+              </div>
+
               <div class="militar-caja-pie">
-                <span>FORMATO: 35 MM</span>
-                <span>FONDO: GARF-04</span>
+                <span>FORMATO: 35 MM // CELULOIDE HISTÓRICO</span>
+                <span>INTEGRANTES: EQUIPO DE INVESTIGACIÓN HISTÓRICA</span>
+                <span>FONDO: GARF-F.5446</span>
               </div>
             </div>
           </article>
-
-          <!-- Cuadro 2: Plaza Roja -->
-          <article class="caja-militar-video">
-            <div class="militar-caja-header">
-              <span class="militar-tag-codigo">CINTA MILITAR 02 // PARADA</span>
-              <span class="militar-tag-clasif">★ ESTADO MAYOR ★</span>
-            </div>
-            <div class="militar-marco-pantalla">
-              <iframe src="https://www.youtube.com/embed/0xG_6XkKxGQ" title="Desfile en la Plaza Roja" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <div class="militar-caja-cuerpo">
-              <span class="militar-fecha">1936 // EJÉRCITO ROJO</span>
-              <h3 class="militar-titulo">Desfile en la Plaza Roja</h3>
-              <p class="militar-desc">Exhibición de divisiones mecanizadas, aviación y culto patriótico al liderazgo de Stalin.</p>
-              <div class="militar-caja-pie">
-                <span>FORMATO: 35 MM</span>
-                <span>FONDO: RGASPI-12</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Cuadro 3: Belomorkanal -->
-          <article class="caja-militar-video">
-            <div class="militar-caja-header">
-              <span class="militar-tag-codigo">CINTA MILITAR 03 // GULAG</span>
-              <span class="militar-tag-clasif">★ CONTROL NKVD ★</span>
-            </div>
-            <div class="militar-marco-pantalla">
-              <iframe src="https://www.youtube.com/embed/K8w3m_p3h6k" title="El Belomorkanal" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <div class="militar-caja-cuerpo">
-              <span class="militar-fecha">1931 – 1933 // BELBALTLAG</span>
-              <h3 class="militar-titulo">Obras del Belomorkanal</h3>
-              <p class="militar-desc">Canal de 227 km excavado a mano por presos políticos bajo la doctrina de la 'reforja' penal.</p>
-              <div class="militar-caja-pie">
-                <span>FORMATO: 35 MM</span>
-                <span>FONDO: NKVD-88</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Cuadro 4: Colectivización -->
-          <article class="caja-militar-video">
-            <div class="militar-caja-header">
-              <span class="militar-tag-codigo">CINTA MILITAR 04 // KOLJÓS</span>
-              <span class="militar-tag-clasif">★ COMISARIADO AGRÍCOLA ★</span>
-            </div>
-            <div class="militar-marco-pantalla">
-              <iframe src="https://www.youtube.com/embed/v9qC0Gq1r2k" title="Colectivización y Requisas" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <div class="militar-caja-cuerpo">
-              <span class="militar-fecha">1929 – 1932 // CAMPO</span>
-              <h3 class="militar-titulo">Campaña de Colectivización</h3>
-              <p class="militar-desc">Requisas estatales forzadas de cereal y desmantelamiento de la propiedad agraria tradicional.</p>
-              <div class="militar-caja-pie">
-                <span>FORMATO: 35 MM</span>
-                <span>FONDO: GOSPLÁN-07</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Cuadro 5: Juicios de Moscú -->
-          <article class="caja-militar-video">
-            <div class="militar-caja-header">
-              <span class="militar-tag-codigo">CINTA MILITAR 05 // PURGAS</span>
-              <span class="militar-tag-clasif">★ TRIBUNAL MILITAR ★</span>
-            </div>
-            <div class="militar-marco-pantalla">
-              <iframe src="https://www.youtube.com/embed/1Jgq2Z_8HqE" title="Los Juicios de Moscú" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <div class="militar-caja-cuerpo">
-              <span class="militar-fecha">1936 – 1938 // EL GRAN TERROR</span>
-              <h3 class="militar-titulo">Los Juicios de Moscú</h3>
-              <p class="militar-desc">Confesiones públicas forzadas a antiguos líderes del partido y purgas en el mando militar soviético.</p>
-              <div class="militar-caja-pie">
-                <span>FORMATO: 35 MM</span>
-                <span>FONDO: GARF-54</span>
-              </div>
-            </div>
-          </article>
-
         </div>
       </section>
 

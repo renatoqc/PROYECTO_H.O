@@ -1118,6 +1118,86 @@ body.archivo-bloqueado .dossier-wrapper {
   border-radius: 2px;
 }
 
+/* Sala de Proyección Principal: Pantalla de Gran Formato */
+.proyector-sala-principal {
+  max-width: 900px;
+  margin: 1.8rem auto 0;
+}
+
+.caja-militar-pantalla-grande {
+  border: 3px solid var(--color-verde-oscuro);
+  box-shadow: 0 10px 30px rgba(21, 29, 25, 0.2);
+}
+
+.militar-marco-grande {
+  aspect-ratio: 16 / 9;
+  background-color: #0A0F0C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-reproductor-elemento {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000000;
+  outline: none;
+}
+
+.militar-metadatos-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.militar-clasif-badge {
+  background-color: var(--color-verde-oscuro);
+  color: var(--color-papel-tarjeta);
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+}
+
+.proyector-bloques-exposicion {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin: 1.2rem 0;
+  padding: 1.2rem;
+  background-color: var(--color-papel-tarjeta);
+  border: 1px dashed var(--color-borde-suave);
+  border-left: 3px solid var(--color-verde-militar);
+}
+
+.bloque-item-cine {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-family: var(--fuente-lectura);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--color-tinta-maquina);
+}
+
+.bloque-num {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-sello-rojo);
+  background-color: var(--color-papel-fondo);
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--color-borde-suave);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
 .grid-filmoteca-militar {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Expediente Histórico: La URSS Estalinista (1928–1953)</title>
   
   <!-- Fuentes de Google -->
@@ -371,18 +372,42 @@
           <article class="caja-militar-video caja-militar-pantalla-grande">
             <div class="militar-caja-header">
               <span class="militar-tag-codigo">CINTA MAESTRA // EXP-PONENCIA-1953</span>
-              <span class="militar-tag-clasif">★ REGISTRO OFICIAL DEL COMITÉ ★</span>
+              <div class="militar-header-acciones">
+                <a href="https://youtu.be/Rfv92AL9IOc" target="_blank" rel="noopener noreferrer" class="btn-cine-externo" title="Abrir video directamente en YouTube">
+                  <i data-lucide="external-link"></i> Ver en YouTube
+                </a>
+                <span class="militar-tag-clasif">★ REGISTRO OFICIAL ★</span>
+              </div>
             </div>
 
-            <!-- Pantalla de reproducción de video: YouTube HD -->
+            <!-- Selector de fuente de video: YouTube Online vs Archivo Local -->
+            <div class="selector-fuente-cine" role="tablist" aria-label="Fuente de reproducción">
+              <button type="button" class="btn-fuente-cine activo" id="btn-fuente-yt" onclick="cambiarFuenteVideo('yt')">
+                <i data-lucide="play-circle"></i> Transmisión YouTube
+              </button>
+              <button type="button" class="btn-fuente-cine" id="btn-fuente-local" onclick="cambiarFuenteVideo('local')">
+                <i data-lucide="hard-drive"></i> Archivo Local (MP4)
+              </button>
+            </div>
+
+            <!-- Pantalla de reproducción de video -->
             <div class="militar-marco-pantalla militar-marco-grande">
+              <!-- Reproductor YouTube HD con políticas de referencia corregidas -->
               <iframe 
-                src="https://www.youtube.com/embed/Rfv92AL9IOc" 
+                id="iframe-youtube-cine"
+                src="https://www.youtube-nocookie.com/embed/Rfv92AL9IOc?rel=0&enablejsapi=1" 
                 title="Exposición Historiográfica: El Estalinismo en la Unión Soviética (1928–1953)" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen 
                 loading="lazy">
               </iframe>
+
+              <!-- Reproductor Local MP4 (para ejecución local inmediata) -->
+              <video id="video-local-cine" class="video-reproductor-elemento" controls preload="metadata" style="display: none;">
+                <source src="video/exposicion_grupal.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video HTML5.
+              </video>
             </div>
 
             <div class="militar-caja-cuerpo">

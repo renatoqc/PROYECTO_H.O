@@ -197,6 +197,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// Alternar entre fuente YouTube y Archivo Local MP4 en la Filmoteca
+window.cambiarFuenteVideo = function(fuente) {
+  const iframeYT = document.getElementById('iframe-youtube-cine');
+  const videoLocal = document.getElementById('video-local-cine');
+  const btnYT = document.getElementById('btn-fuente-yt');
+  const btnLocal = document.getElementById('btn-fuente-local');
+
+  if (!iframeYT || !videoLocal) return;
+
+  if (fuente === 'yt') {
+    iframeYT.style.display = 'block';
+    videoLocal.style.display = 'none';
+    videoLocal.pause();
+    if (btnYT) btnYT.classList.add('activo');
+    if (btnLocal) btnLocal.classList.remove('activo');
+  } else {
+    iframeYT.style.display = 'none';
+    videoLocal.style.display = 'block';
+    if (btnLocal) btnLocal.classList.add('activo');
+    if (btnYT) btnYT.classList.remove('activo');
+    videoLocal.play().catch(() => {});
+  }
+};
+
 // Mensaje flotante de respaldo si no está SweetAlert2
 function mostrarNotificacion(mensaje) {
   let alerta = document.querySelector('.alerta-desclasificado');

@@ -1129,6 +1129,80 @@ body.archivo-bloqueado .dossier-wrapper {
   box-shadow: 0 10px 30px rgba(21, 29, 25, 0.2);
 }
 
+.militar-header-acciones {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.btn-cine-externo {
+  color: var(--color-papel-envejecido);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--color-borde-suave);
+  padding: 0.15rem 0.55rem;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.7rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 2px;
+  transition: var(--transicion-suave);
+}
+
+.btn-cine-externo:hover {
+  background-color: var(--color-sello-rojo);
+  color: #FFFFFF;
+  border-color: var(--color-sello-rojo);
+}
+
+.btn-cine-externo svg,
+.btn-cine-externo i {
+  width: 12px;
+  height: 12px;
+}
+
+.selector-fuente-cine {
+  display: flex;
+  background-color: var(--color-verde-oscuro);
+  border-bottom: 1px solid var(--color-verde-militar);
+  padding: 0.4rem 0.8rem;
+  gap: 0.5rem;
+}
+
+.btn-fuente-cine {
+  background: transparent;
+  color: var(--color-borde-suave);
+  border: 1px solid transparent;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: var(--transicion-suave);
+}
+
+.btn-fuente-cine svg,
+.btn-fuente-cine i {
+  width: 14px;
+  height: 14px;
+}
+
+.btn-fuente-cine:hover {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.btn-fuente-cine.activo {
+  background-color: var(--color-verde-militar);
+  color: #FFFFFF;
+  border-color: var(--color-verde-militar);
+}
+
 .militar-marco-grande {
   aspect-ratio: 16 / 9;
   background-color: #0A0F0C;

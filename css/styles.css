@@ -24,7 +24,11 @@
   --transicion-suave: all 0.25s ease-in-out;
 }
 
-/* Reseteo básico */
+/* Reseteo básico y navegación fluida */
+html {
+  scroll-behavior: smooth;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -2380,6 +2384,189 @@ body.archivo-bloqueado .dossier-wrapper {
   .pie-pagina-archivo {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* ==========================================================
+   SISTEMA DE CITAS ACADÉMICAS INTERACTIVAS Y REFERENCIAS
+   ========================================================== */
+
+/* Cita superíndice interactiva en el texto */
+.cita-ref {
+  display: inline-block;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.72em;
+  line-height: 1;
+  vertical-align: super;
+  padding: 0.12em 0.38em;
+  margin: 0 0.15em;
+  color: #D35400;
+  background-color: rgba(211, 84, 0, 0.12);
+  border: 1px solid rgba(211, 84, 0, 0.38);
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cita-ref:hover,
+.cita-ref:focus {
+  color: #FFFFFF;
+  background-color: var(--color-sello-rojo);
+  border-color: var(--color-sello-rojo);
+  box-shadow: 0 0 8px rgba(165, 45, 39, 0.6);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* Sección de Referencias Bibliográficas */
+#referencias-bibliograficas {
+  background-color: #121814;
+  border-top: 2px solid var(--color-verde-militar);
+  border-bottom: 2px solid var(--color-verde-militar);
+  padding: 3rem 2rem;
+  margin-top: 2.5rem;
+  color: var(--color-papel-envejecido);
+}
+
+.referencias-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.referencias-cabecera {
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed var(--color-borde-suave);
+  padding-bottom: 1.2rem;
+}
+
+.referencias-folio {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.72rem;
+  color: var(--color-sello-rojo);
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.referencias-titulo {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 1.45rem;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.04em;
+}
+
+.referencias-subtitulo {
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.82rem;
+  color: #9EABA1;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.referencias-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.referencias-lista li {
+  position: relative;
+  background-color: #18201B;
+  border: 1px solid #28362B;
+  border-left: 4px solid var(--color-verde-militar);
+  padding: 1.2rem 1.4rem 1.2rem 3.4rem;
+  border-radius: 2px;
+  font-family: var(--fuente-lectura);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #D6DCD7;
+  transition: all 0.4s ease;
+  scroll-margin-top: 95px;
+}
+
+.referencias-numero {
+  position: absolute;
+  left: 0.85rem;
+  top: 1.2rem;
+  font-family: var(--fuente-mono-tecnica);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #E67E22;
+}
+
+.referencias-lista li strong {
+  color: #FFFFFF;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.92rem;
+  display: inline-block;
+  margin-right: 0.35rem;
+}
+
+.referencias-lista li em {
+  color: #E0D8C3;
+  font-style: italic;
+}
+
+.referencias-enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+  font-family: var(--fuente-mono-tecnica);
+  font-size: 0.76rem;
+  color: #85C1E9;
+  text-decoration: none;
+  background: rgba(133, 193, 233, 0.08);
+  border: 1px dashed rgba(133, 193, 233, 0.35);
+  padding: 0.3rem 0.65rem;
+  border-radius: 2px;
+  transition: var(--transicion-suave);
+}
+
+.referencias-enlace i,
+.referencias-enlace svg {
+  width: 12px;
+  height: 12px;
+}
+
+.referencias-enlace:hover {
+  color: #FFFFFF;
+  background-color: #1F4E79;
+  border-color: #85C1E9;
+  text-decoration: none;
+}
+
+/* Regla :target que ilumina y resalta temporalmente la fuente seleccionada */
+#referencias-bibliograficas li:target {
+  background-color: #271615;
+  border-color: var(--color-sello-rojo);
+  border-left: 6px solid var(--color-sello-rojo);
+  box-shadow: 0 0 20px rgba(165, 45, 39, 0.5);
+  animation: iluminarReferencia 3s ease-out;
+}
+
+@keyframes iluminarReferencia {
+  0% {
+    background-color: #421B19;
+    border-left-color: #E74C3C;
+    box-shadow: 0 0 28px rgba(231, 76, 60, 0.75);
+  }
+  40% {
+    background-color: #311816;
+    border-left-color: var(--color-sello-rojo);
+    box-shadow: 0 0 20px rgba(165, 45, 39, 0.55);
+  }
+  100% {
+    background-color: #18201B;
+    border-left-color: var(--color-sello-rojo);
+    box-shadow: 0 0 8px rgba(165, 45, 39, 0.25);
   }
 }
 
